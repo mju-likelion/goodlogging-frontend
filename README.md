@@ -1,0 +1,2 @@
+# goodlogging_frontend
+web
