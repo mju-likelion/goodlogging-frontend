@@ -1,0 +1,7 @@
+{
+  "extends": [
+    "@titicaca/eslint-config-triple/stylelint",
+    "stylelint-config-standard-scss",
+    "stylelint-config-recess-order"
+  ]
+}
