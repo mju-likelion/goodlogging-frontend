@@ -1,0 +1,40 @@
+.box{
+  margin-top: 282px;
+  margin-bottom: 281px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.loginInput{
+  background-color: #F0F0F0;
+  width: 343px;
+  height: 55px;
+  border-radius: 20px;
+  text-indent: 10px;
+}
+
+.input-wrapper{
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  font-size: 20px;
+}
+
+.loginButton{
+  background-color: #3F97FF;
+  color: #FFFFFF;
+  width: 343px;
+  height: 55px;
+  margin-top: 42px;
+  font-size: 24px;
+  border-radius: 20px;
+}
+
+.signupButton{
+  width: 50px;
+  height: 37px;
+  font-size: 12px;
+  margin: 0 auto;
+  margin-top: 18px;
+}
