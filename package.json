@@ -6,6 +6,7 @@
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
+    "classnames": "^2.3.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
@@ -42,12 +43,12 @@
   "devDependencies": {
     "@titicaca/eslint-config-triple": "^3.1.0",
     "eslint": "^8.20.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-config-standard-jsx": "^11.0.0",
     "eslint-plugin-promise": "^6.0.0",
     "prettier": "^2.7.1",
     "sass": "^1.54.0",
     "stylelint": "^14.9.1",
-    "eslint-config-standard": "^17.0.0",
-    "eslint-config-standard-jsx": "^11.0.0",
     "stylelint-config-recess-order": "^3.0.0",
     "stylelint-config-standard-scss": "^4.0.0"
   }
