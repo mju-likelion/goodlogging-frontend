@@ -3,5 +3,8 @@
     "@titicaca/eslint-config-triple/stylelint",
     "stylelint-config-standard-scss",
     "stylelint-config-recess-order"
-  ]
+  ],
+  "rules": {
+    "selector-class-pattern": "^[a-z][a-zA-Z0-9]+$"
+  }
 }
