@@ -34,7 +34,7 @@
     }
     
     .progress{
-      //ㄱㄱ 훔 당황당근육맨토스리라차소스타일드컴포넌트.......트라이앵글리코겐 고수다 
+
       text-align: center;
       font-weight: 400;
       font-size: 15px;
@@ -43,11 +43,7 @@
       }
 
       .progressBar{
-        //파란 부분과 회색부분 상관없이 그냥 전부다 회색으로 하는 ...? 일단 다 회색으로 ㄱㄱㄱ
-        // flex로 가운데 정렬하려면 부모에서 사용해야됨.....대박
-        // color nono color는 폰트컬러 말하는거임 backcolor
-        //위아래 마진
-        margin: 0 auto; //라?
+        margin: 0 auto;
         width: 300px;
         height: 4px;
         background-color: #535353;
