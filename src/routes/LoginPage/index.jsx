@@ -19,8 +19,8 @@ const LoginPage = () => {
   }
 
   return (
-    <div className={styles.box}>
-      <div className={styles['input-wrapper']}>
+    <div className={styles.loginPage}>
+      <div className={styles.inputWrapper}>
         <input
           className={styles.loginInput}
           name="id"
