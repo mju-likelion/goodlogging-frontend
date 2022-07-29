@@ -26,7 +26,6 @@ const LOCAL_NAMES = [
 
 const SignupPage = () => {
   const [local, setLocal] = useState(null)
-
   console.log(local)
 
   return (
@@ -50,6 +49,7 @@ const SignupPage = () => {
               textColor="textBlack"
               backColor="backGrey"
               onClick={setLocal}
+              isSelected={item === local}
             />
           ))}
         </div>
