@@ -22,43 +22,43 @@
 - stylelint
 
 #### 폴더구조
-  📦src
-  ┣ 📂assets
-  ┃ ┣ 📂pngs
-  ┃ ┃ ┗ 📜challenge.jpg
-  ┃ ┗ 📂svgs
-  ┃ ┃ ┣ 📜chevron-left-solid.svg
-  ┃ ┃ ┗ 📜index.js
-  ┣ 📂routes
-  ┃ ┣ 📂LoginPage
-  ┃ ┃ ┣ 📜index.jsx
-  ┃ ┃ ┗ 📜loginPage.module.scss
-  ┃ ┗ 📂MyChallengePage
-  ┃ ┃ ┣ 📜index.jsx
-  ┃ ┃ ┗ 📜myChallengePage.module.scss
-  ┣ 📂styles
-  ┃ ┣ 📂base
-  ┃ ┃ ┣ 📜_fonts.scss
-  ┃ ┃ ┣ 📜_more.scss
-  ┃ ┃ ┗ 📜_reset.scss
-  ┃ ┣ 📂constants
-  ┃ ┃ ┣ 📜_colors.scss
-  ┃ ┃ ┣ 📜_levels.scss
-  ┃ ┃ ┗ 📜_sizes.scss
-  ┃ ┣ 📂mixins
-  ┃ ┃ ┣ 📜_animation.scss
-  ┃ ┃ ┣ 📜_flexbox.scss
-  ┃ ┃ ┣ 📜_position.scss
-  ┃ ┃ ┣ 📜_responsive.scss
-  ┃ ┃ ┗ 📜_visual.scss
-  ┃ ┣ 📜index.js
-  ┃ ┗ 📜index.scss
-  ┣ 📜App.js
-  ┣ 📜App.test.js
-  ┣ 📜index.js
-  ┣ 📜reportWebVitals.js
-  ┣ 📜routes.module.scss
-  ┗ 📜setupTests.js
+    📦src
+    ┣ 📂assets
+    ┃ ┣ 📂pngs
+    ┃ ┃ ┗ 📜challenge.jpg
+    ┃ ┗ 📂svgs
+    ┃ ┃ ┣ 📜chevron-left-solid.svg
+    ┃ ┃ ┗ 📜index.js
+    ┣ 📂routes
+    ┃ ┣ 📂LoginPage
+    ┃ ┃ ┣ 📜index.jsx
+    ┃ ┃ ┗ 📜loginPage.module.scss
+    ┃ ┗ 📂MyChallengePage
+    ┃ ┃ ┣ 📜index.jsx
+    ┃ ┃ ┗ 📜myChallengePage.module.scss
+    ┣ 📂styles
+    ┃ ┣ 📂base
+    ┃ ┃ ┣ 📜_fonts.scss
+    ┃ ┃ ┣ 📜_more.scss
+    ┃ ┃ ┗ 📜_reset.scss
+    ┃ ┣ 📂constants
+    ┃ ┃ ┣ 📜_colors.scss
+    ┃ ┃ ┣ 📜_levels.scss
+    ┃ ┃ ┗ 📜_sizes.scss
+    ┃ ┣ 📂mixins
+    ┃ ┃ ┣ 📜_animation.scss
+    ┃ ┃ ┣ 📜_flexbox.scss
+    ┃ ┃ ┣ 📜_position.scss
+    ┃ ┃ ┣ 📜_responsive.scss
+    ┃ ┃ ┗ 📜_visual.scss
+    ┃ ┣ 📜index.js
+    ┃ ┗ 📜index.scss
+    ┣ 📜App.js
+    ┣ 📜App.test.js
+    ┣ 📜index.js
+    ┣ 📜reportWebVitals.js
+    ┣ 📜routes.module.scss
+    ┗ 📜setupTests.js
 
 ---
 
