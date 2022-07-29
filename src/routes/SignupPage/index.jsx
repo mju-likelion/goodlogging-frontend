@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 import Button from '../../components/Button'
 
 import styles from './signupPage.module.scss'
@@ -23,6 +25,10 @@ const LOCAL_NAMES = [
 ]
 
 const SignupPage = () => {
+  const [local, setLocal] = useState(null)
+
+  console.log(local)
+
   return (
     <div className={styles.signupPage}>
       <h1>회원 가입</h1>
@@ -43,6 +49,7 @@ const SignupPage = () => {
               width="small"
               textColor="textBlack"
               backColor="backGrey"
+              onClick={setLocal}
             />
           ))}
         </div>

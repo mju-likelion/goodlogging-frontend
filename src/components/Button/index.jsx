@@ -5,10 +5,19 @@ import styles from './button.module.scss'
 
 const cx = classNames.bind(styles)
 
-const Button = ({ text, width, height, textColor, backColor, textSize }) => {
+const Button = ({
+  text,
+  width,
+  height,
+  textColor,
+  backColor,
+  textSize,
+  onClick,
+}) => {
   return (
     <button
       className={cx('button', width, height, textColor, backColor, textSize)}
+      onClick={(e) => onClick(e.currentTarget.value)}
     >
       {text}
     </button>
@@ -21,6 +30,7 @@ Button.propTypes = {
   backColor: Proptypes.oneOf(['backBlue', 'backGrey']).isRequired,
   textColor: Proptypes.oneOf(['textBlack', 'textWhite', 'textBlue']).isRequired,
   textSize: Proptypes.oneOf(['textLarge']).isRequired,
+  onClick: Proptypes.func,
 }
 
 export default Button
