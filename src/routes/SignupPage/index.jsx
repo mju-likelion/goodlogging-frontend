@@ -27,9 +27,13 @@ const SignupPage = () => {
     <div className={styles.signupPage}>
       <h1>회원 가입</h1>
       <form className={styles.signupForm}>
-        <input type="email" placeholder="example@domain.com" />
-        <input placeholder="username" />
-        <input placeholder="password" />
+        <input
+          className={styles.textInput}
+          type="email"
+          placeholder="example@domain.com"
+        />
+        <input className={styles.textInput} placeholder="username" />
+        <input className={styles.textInput} placeholder="password" />
         <p className={styles.label}>지역</p>
         <div className={styles.selector}>
           {LOCAL_NAMES.map((item) => (

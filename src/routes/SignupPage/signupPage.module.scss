@@ -22,7 +22,7 @@
       background-color: #f0f0f0;
       border-radius: 20px;
 
-      &:not(:last-child) {
+      &:not(:last-of-type) {
         margin-bottom: 12px;
       }
     }
