@@ -9,6 +9,7 @@ module.exports = {
   overrides: [...overrides],
   rules: {
     'prettier/prettier': ['error', { endOfLine: 'auto' }],
+    'no-console': 'off',
   },
   settings: {
     'import/resolver': {
