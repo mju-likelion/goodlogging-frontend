@@ -22,20 +22,27 @@
 - stylelint
 
 #### 폴더구조
-    📦src
+      📦src
     ┣ 📂assets
     ┃ ┣ 📂pngs
     ┃ ┃ ┗ 📜challenge.jpg
     ┃ ┗ 📂svgs
     ┃ ┃ ┣ 📜chevron-left-solid.svg
     ┃ ┃ ┗ 📜index.js
+    ┣ 📂components
+    ┃ ┗ 📂Button
+    ┃ ┃ ┣ 📜button.module.scss
+    ┃ ┃ ┗ 📜index.jsx
     ┣ 📂routes
     ┃ ┣ 📂LoginPage
     ┃ ┃ ┣ 📜index.jsx
     ┃ ┃ ┗ 📜loginPage.module.scss
-    ┃ ┗ 📂MyChallengePage
+    ┃ ┣ 📂MyChallengePage
     ┃ ┃ ┣ 📜index.jsx
     ┃ ┃ ┗ 📜myChallengePage.module.scss
+    ┃ ┗ 📂SignupPage
+    ┃ ┃ ┣ 📜index.jsx
+    ┃ ┃ ┗ 📜signupPage.module.scss
     ┣ 📂styles
     ┃ ┣ 📂base
     ┃ ┃ ┣ 📜_fonts.scss
@@ -59,7 +66,6 @@
     ┣ 📜reportWebVitals.js
     ┣ 📜routes.module.scss
     ┗ 📜setupTests.js
-
 ---
 
 #### 지난주부터 오늘까지 무엇을 진행했는지(Done) 
@@ -74,7 +80,7 @@
 - 백엔드 : 모델 만들기, 라우터 분리, API문서 만들기
 - 프론트 
   - 이유정 : 플로깅 화면
-  - 박은서 : 플로깅 로고 디자인 
+  - 박은서 : 설정화면 logic 구현
   - 김보현 : 메인화면
 
 #### 진행하면서 문제가 어떤 것이 있었는지 그것이 해결중인지 해결되었는지 해결했다면 어떤 식으로 해결했는지(Issue) :
@@ -86,9 +92,14 @@
 - [x] 로그인 페이지 마크다운
 - [x] 회원가입 페이지 마크다운
 - [x] My challenge 페이지 마크다운
+- [x] 설정화면 페이지 마크다운
+- [x] 플로깅 로고 디자인
 #### In progress
 - [ ] 회원가입 logic
 #### Do do
 - [ ] 플로깅 페이지 마크다운
 - [ ] 메인 페이지 마크다운
 - [ ] 로그인 logic
+
+#### Issue
+- [x] 깃허브 403에러 - 권한이 없어서 push가 안되는 이슈 => repo를 하나 더 만들어서 push.
