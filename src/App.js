@@ -4,7 +4,6 @@ import MyChallengePage from './routes/MyChallengePage'
 import SettingPage from './routes/SettingPage'
 import LoginPage from './routes/LoginPage'
 import SignupPage from './routes/SignupPage'
-
 import styles from './routes.module.scss'
 
 function App() {
