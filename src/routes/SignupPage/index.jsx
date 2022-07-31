@@ -1,6 +1,7 @@
 import { useState } from 'react'
 
 import Button from '../../components/Button'
+import useInput from '../../hooks/useInput'
 
 import styles from './signupPage.module.scss'
 
@@ -26,19 +27,60 @@ const LOCAL_NAMES = [
 
 const SignupPage = () => {
   const [local, setLocal] = useState(null)
-  console.log(local)
+
+  const {
+    handleInputChange: handleEmailChange,
+    handleBlur: handleEmailBlur,
+    isValid: isEmailValid,
+    // isTouched: isEmailTouched,
+  } = useInput('email')
+
+  const {
+    handleInputChange: handlePasswordChange,
+    handleBlur: handlePasswordBlur,
+    isValid: isPasswordValid,
+    // isTouched: isPasswordTouched,
+  } = useInput('password')
+
+  const {
+    handleInputChange: handleUsernameChange,
+    handleBlur: handleUsernameBlur,
+    isValid: isUsernameValid,
+    // isTouched: isUsernameTouched,
+  } = useInput('username')
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    if (isEmailValid && isUsernameValid && isPasswordValid) {
+      console.log('전송')
+    }
+  }
 
   return (
     <div className={styles.signupPage}>
       <h1>회원 가입</h1>
-      <form className={styles.signupForm}>
+      <form className={styles.signupForm} onSubmit={handleSubmit}>
         <input
           className={styles.textInput}
           type="email"
           placeholder="example@domain.com"
+          onChange={handleEmailChange}
+          onBlur={handleEmailBlur}
         />
-        <input className={styles.textInput} placeholder="username" />
-        <input className={styles.textInput} placeholder="password" />
+        <input
+          className={styles.textInput}
+          placeholder="password"
+          type="text"
+          onChange={handlePasswordChange}
+          onBlur={handlePasswordBlur}
+        />
+        <input
+          className={styles.textInput}
+          placeholder="username"
+          type="text"
+          onChange={handleUsernameChange}
+          onBlur={handleUsernameBlur}
+        />
         <p className={styles.label}>지역</p>
         <div className={styles.selector}>
           {LOCAL_NAMES.map((item) => (
@@ -50,6 +92,7 @@ const SignupPage = () => {
               backColor="backGrey"
               onClick={setLocal}
               isSelected={item === local}
+              type="button"
             />
           ))}
         </div>
@@ -60,6 +103,7 @@ const SignupPage = () => {
           textColor="textWhite"
           backColor="backBlue"
           textSize="textLarge"
+          type="submit"
         />
       </form>
     </div>
