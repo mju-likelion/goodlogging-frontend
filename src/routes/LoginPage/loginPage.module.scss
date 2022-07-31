@@ -1,0 +1,42 @@
+.loginPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 282px;
+  margin-bottom: 281px;
+}
+
+.loginInput {
+  width: 343px;
+  height: 55px;
+  text-indent: 10px;
+  background-color: #f0f0f0;
+  border-radius: 20px;
+}
+
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  font-size: 20px;
+}
+
+.loginButton {
+  width: 343px;
+  height: 55px;
+  margin-top: 42px;
+  font-size: 24px;
+  color: #fff;
+  background-color: #3f97ff;
+  border-radius: 20px;
+}
+
+.signupButton {
+  width: 50px;
+  height: 37px;
+  margin: 0 auto;
+  margin-top: 18px;
+  font-size: 12px;
+}
