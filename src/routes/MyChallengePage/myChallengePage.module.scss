@@ -38,21 +38,16 @@
       font-weight: 400;
       text-align: center;
 
-      .hour {
+      .leftHour {
         color: black;
+        margin-bottom: 5px;
       }
 
-      .progressBar {
-        width: 300px;
-        height: 4px;
-        margin: 0 auto;
-        margin-top: 13px;
-        margin-bottom: 13px;
-        background-color: #535353;
-      }
 
-      .day {
+      .leftDay {
         color: #4e4e4e;
+        margin-top: 5px;
+        margin-bottom: 142px;
       }
     }
   }
