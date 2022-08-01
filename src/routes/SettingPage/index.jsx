@@ -1,8 +1,36 @@
+import { useState } from 'react'
+
 import { BackIcon } from '../../assets/svgs'
+import Button from '../../components/Button'
 
 import styles from './settingPage.module.scss'
 
-const settingPage = () => {
+const LOCAL_NAMES = [
+  '서울',
+  '부산',
+  '인천',
+  '대구',
+  '광주',
+  '대전',
+  '울산',
+  '경기',
+  '강원',
+  '충북',
+  '충남',
+  '전북',
+  '전남',
+  '경북',
+  '경남',
+  '제주',
+  '세종',
+]
+
+const LEVEL_NAME = ['초급', '중급', '고급']
+
+const SettingPage = () => {
+  const [local, setLocal] = useState(null)
+  const [level, setLevel] = useState(null)
+  console.log(local)
   return (
     <div className={styles.settingPage}>
       <nav>
@@ -15,84 +43,40 @@ const settingPage = () => {
       </nav>
       <section className={styles.content}>
         <h1>플로깅 난이도</h1>
-        <div className={styles.buttonDiv}>
-          <button className={styles.levelBtn} type="button">
-            초급
-          </button>
-          <button className={styles.levelBtn} type="button">
-            중급
-          </button>
-          <button className={styles.levelBtn} type="button">
-            고급
-          </button>
+        <div className={styles.selector}>
+          {LEVEL_NAME.map((item) => (
+            <Button
+              key={item}
+              text={item}
+              width="small"
+              textColor="textBlack"
+              backColor="backGrey"
+              onClick={setLocal}
+              isSelected={item === local}
+            />
+          ))}
           <h1>플로깅을 시작할 때 반영되는 개수가 달라집니다.</h1>
         </div>
         <h1>내 동네</h1>
-        <div className={styles.buttonDiv}>
-          <button className={styles.regionBtn} type="button">
-            서울
-          </button>
-          <button className={styles.regionBtn} type="button">
-            부산
-          </button>
-          <button className={styles.regionBtn} type="button">
-            인천
-          </button>
-          <button className={styles.regionBtn} type="button">
-            대구
-          </button>
-        </div>
-        <div className={styles.buttonDiv}>
-          <button className={styles.regionBtn} type="button">
-            광주
-          </button>
-          <button className={styles.regionBtn} type="button">
-            대전
-          </button>
-          <button className={styles.regionBtn} type="button">
-            울산
-          </button>
-          <button className={styles.regionBtn} type="button">
-            경기
-          </button>
-        </div>
-        <div className={styles.buttonDiv}>
-          <button className={styles.regionBtn} type="button">
-            강원
-          </button>
-          <button className={styles.regionBtn} type="button">
-            충북
-          </button>
-          <button className={styles.regionBtn} type="button">
-            충남
-          </button>
-          <button className={styles.regionBtn} type="button">
-            전북
-          </button>
-        </div>
-        <div className={styles.buttonDiv}>
-          <button className={styles.regionBtn} type="button">
-            전남
-          </button>
-          <button className={styles.regionBtn} type="button">
-            경북
-          </button>
-          <button className={styles.regionBtn} type="button">
-            경남
-          </button>
-          <button className={styles.regionBtn} type="button">
-            제주
-          </button>
-        </div>
-        <div className={styles.lastButtonDiv}>
-          <button className={styles.regionBtn} type="button">
-            세종
-          </button>
-          <h1>플로깅을 시작할 때 반영되는 개수가 달라집니다.</h1>
+        <div className={styles.selector}>
+          {LOCAL_NAMES.map((item) => (
+            <Button
+              key={item}
+              text={item}
+              width="small"
+              textColor="textBlack"
+              backColor="backGrey"
+              onClick={setLevel}
+              isSelected={item === level}
+            />
+          ))}
+          <h1>
+            메인 화면에 뜨는 동네와 사람들의 순위가 설정에 따라 반영됩니다.
+          </h1>
         </div>
       </section>
     </div>
   )
-}
+} // 문제가 있어보이죠? 플로깅 난이도를 누르면 내 동네가 해제되는데... zzzzzzzz잠깐만요 .
 
-export default settingPage
+export default SettingPage
