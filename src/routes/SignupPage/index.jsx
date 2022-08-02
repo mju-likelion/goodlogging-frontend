@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import Button from '../../components/Button'
+import Button from '../../components/Buttons/Button'
 
 import styles from './signupPage.module.scss'
 
