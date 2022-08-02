@@ -26,7 +26,6 @@ const LOCAL_NAMES = [
 
 const SignupPage = () => {
   const [local, setLocal] = useState(null)
-  console.log(local)
 
   return (
     <div className={styles.signupPage}>
