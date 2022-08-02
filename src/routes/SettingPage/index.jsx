@@ -77,6 +77,6 @@ const SettingPage = () => {
       </section>
     </div>
   )
-} // 문제가 있어보이죠? 플로깅 난이도를 누르면 내 동네가 해제되는데... zzzzzzzz잠깐만요 .
+}
 
 export default SettingPage
