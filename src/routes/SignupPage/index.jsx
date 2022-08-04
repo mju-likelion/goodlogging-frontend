@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 
-import Button from '../../components/Button'
+import Button from '../../components/Buttons/Button'
 
 import styles from './signupPage.module.scss'
 
