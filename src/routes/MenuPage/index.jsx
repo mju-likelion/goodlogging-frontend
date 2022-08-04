@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 
-import { BackIcon } from '../../assets/svgs'
+import Gnb from '../../components/Gnb'
+import BackButton from '../../components/Buttons/BackButton'
 
 import styles from './menuPage.module.scss'
 
@@ -9,11 +10,9 @@ const MenuPage = () => {
 
   return (
     <div className={styles.menuPage}>
-      <nav>
-        <button type="button">
-          <BackIcon className={styles.backIcon} />
-        </button>
-      </nav>
+      <Gnb>
+        <BackButton />
+      </Gnb>
       <section className={styles.content}>
         <button className={styles.logout}>로그아웃</button>
         <div className={styles.line} />

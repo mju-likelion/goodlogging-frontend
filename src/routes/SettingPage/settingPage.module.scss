@@ -4,27 +4,6 @@
   align-items: center;
   width: 100%;
 
-  & > nav {
-    width: 100%;
-    padding: 24px 0;
-
-
-    .doneIcon {
-      float: right;
-      margin: 0 auto;
-      margin-right: 20px;
-      font-family: "Work Sans";
-      font-size: normal;
-      font-size: 17px;
-      font-weight: 550;
-    }
-
-    .backIcon {
-      width: 20px;
-      margin-left: 20px;
-    }
-  }
-
   .content {
     align-items: center;
 
