@@ -1,70 +1,54 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 import styles from './ploggingDoingPage.module.scss'
 import ProgressBar from './progressBar'
 
 const PloggingDoingPage = () => {
   const [count, setCount] = useState(0)
+  // const [color, setColor] = useState('#3F97FF')
+
   const level = 30 // 초급 중급 고급에 따라 바뀌어야 됨
-  const state = {
+  const myprogress = (count / level) * 100
+  let state = {
     size: 300,
-    count,
-    level,
-    progress: (count / level) * 100,
+    progress: myprogress,
     strokeWidth: 15,
-    circleOneStroke: '#EFEFEF',
-    circleTwoStroke: '#3F97FF',
+    circleOneStroke: '#3F97FF',
+    circleTwoStroke: '#EFEFEF',
   }
-  function addCount() {
-    if (count === level) {
-      setCount(0)
-    } else {
-      setCount(count + 1)
+  if (myprogress >= 100) {
+    state = {
+      size: 300,
+      progress: myprogress,
+      strokeWidth: 15,
+      circleOneStroke: '#3F97FF',
+      circleTwoStroke: '#4D377B',
     }
+  }
+
+  function addCount() {
+    setCount(count + 1)
   }
   const clickMenu = () => {
     // console.log('clicked menu')
   }
 
-  let timerId
-  let time = 0
-  const stopwatch = document.getElementById('stopwatch')
-  let hour, min, sec
+  const [time, setTime] = useState(0)
+  const [timerOn, setTimeOn] = useState(true)
 
-  function printTime() {
-    time++
-    stopwatch.innerText = getTimeFormatString()
-  }
+  useEffect(() => {
+    let interval = null
 
-  // 시계 시작 - 재귀호출로 반복실행
-  // eslint-disable-next-line no-unused-vars
-  function startClock() {
-    printTime()
-    stopClock()
-    timerId = setTimeout(startClock, 1000)
-  }
-
-  // 시계 중지
-  function stopClock() {
-    if (timerId != null) {
-      clearTimeout(timerId)
+    if (timerOn) {
+      interval = setInterval(() => {
+        setTime((prevTime) => prevTime + 10)
+      }, 10)
+    } else {
+      clearInterval(interval)
     }
-  }
 
-  // 시간(int)을 시, 분, 초 문자열로 변환
-  function getTimeFormatString() {
-    hour = parseInt(String(time / (60 * 60)))
-    min = parseInt(String((time - hour * 60 * 60) / 60))
-    sec = time % 60
-
-    return (
-      String(hour).padStart(2, '0') +
-      ':' +
-      String(min).padStart(2, '0') +
-      ':' +
-      String(sec).padStart(2, '0')
-    )
-  }
+    return () => clearInterval(interval)
+  }, [timerOn])
 
   return (
     <div className={styles.ploggingWrap}>
@@ -88,11 +72,24 @@ const PloggingDoingPage = () => {
           </div>
           <div>
             <div>
-              <button className={styles.finishButton} onClick="stopClock()">
-                끝내기
-              </button>
               <div className={styles.stopwatchWrap}>
-                <h1 className={styles.stopwatch}>00:00:00</h1>
+                <button
+                  className={styles.finishButton}
+                  onClick={() => setTimeOn(false)}
+                >
+                  끝내기
+                </button>
+                <div className={styles.stopwatch}>
+                  <span>
+                    {('0' + Math.floor((time / 3600000) % 60)).slice(-2)}:
+                  </span>
+                  <span>
+                    {('0' + Math.floor((time / 60000) % 60)).slice(-2)}:
+                  </span>
+                  <span>
+                    {('0' + Math.floor((time / 1000) % 60)).slice(-2)}
+                  </span>
+                </div>
               </div>
             </div>
           </div>
