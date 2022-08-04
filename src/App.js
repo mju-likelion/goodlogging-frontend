@@ -4,8 +4,9 @@ import MyChallengePage from './routes/MyChallengePage'
 import SettingPage from './routes/SettingPage'
 import LoginPage from './routes/LoginPage'
 import SignupPage from './routes/SignupPage'
-import styles from './routes.module.scss'
 import MenuPage from './routes/MenuPage'
+import CompletePage from './routes/CompletePage'
+import styles from './routes.module.scss'
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/menu" element={<MenuPage />} />
+        <Route path="/complete" element={<CompletePage />} />
       </Routes>
     </div>
   )
