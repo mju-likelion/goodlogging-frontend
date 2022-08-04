@@ -1,7 +1,7 @@
 import { useState } from 'react'
+import { useForm } from 'react-hook-form'
 
 import Button from '../../components/Button'
-import useInput from '../../hooks/useInput'
 
 import styles from './signupPage.module.scss'
 
@@ -26,60 +26,41 @@ const LOCAL_NAMES = [
 ]
 
 const SignupPage = () => {
+  const { register, handleSubmit, formState } = useForm({
+    mode: 'onChange',
+  })
   const [local, setLocal] = useState(null)
 
-  const {
-    handleInputChange: handleEmailChange,
-    handleBlur: handleEmailBlur,
-    isValid: isEmailValid,
-    // isTouched: isEmailTouched,
-  } = useInput('email')
-
-  const {
-    handleInputChange: handlePasswordChange,
-    handleBlur: handlePasswordBlur,
-    isValid: isPasswordValid,
-    // isTouched: isPasswordTouched,
-  } = useInput('password')
-
-  const {
-    handleInputChange: handleUsernameChange,
-    handleBlur: handleUsernameBlur,
-    isValid: isUsernameValid,
-    // isTouched: isUsernameTouched,
-  } = useInput('username')
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    if (isEmailValid && isUsernameValid && isPasswordValid) {
-      console.log('전송')
-    }
+  const onSubmit = (data) => {
+    console.log(data)
+    console.log('isValid:', formState.isValid)
   }
 
   return (
     <div className={styles.signupPage}>
       <h1>회원 가입</h1>
-      <form className={styles.signupForm} onSubmit={handleSubmit}>
+      <form className={styles.signupForm} onSubmit={handleSubmit(onSubmit)}>
         <input
           className={styles.textInput}
           type="email"
           placeholder="example@domain.com"
-          onChange={handleEmailChange}
-          onBlur={handleEmailBlur}
+          {...register('email', {
+            required: true,
+            // eslint-disable-next-line no-useless-escape
+            pattern: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,})+$/,
+          })}
         />
         <input
           className={styles.textInput}
           placeholder="password"
-          type="text"
-          onChange={handlePasswordChange}
-          onBlur={handlePasswordBlur}
+          type="password"
+          {...register('password', { required: true, minLength: 8 })}
         />
         <input
           className={styles.textInput}
           placeholder="username"
           type="text"
-          onChange={handleUsernameChange}
-          onBlur={handleUsernameBlur}
+          {...register('username', { required: true, minLength: 2 })}
         />
         <p className={styles.label}>지역</p>
         <div className={styles.selector}>
@@ -104,6 +85,7 @@ const SignupPage = () => {
           backColor="backBlue"
           textSize="textLarge"
           type="submit"
+          disabled={!formState.isValid || !local}
         />
       </form>
     </div>
