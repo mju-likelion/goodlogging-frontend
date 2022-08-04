@@ -40,7 +40,7 @@ const MyChallengePage = () => {
           <p className={styles.leftHour}>
             {myHour}H {myMin}M / {challengeHour}H
           </p>
-          <Progress done={ratio} />
+          <Progress ratio={ratio} />
           <p className={styles.leftDay}>{leftDate}일 남았습니다.</p>
         </div>
       </section>
