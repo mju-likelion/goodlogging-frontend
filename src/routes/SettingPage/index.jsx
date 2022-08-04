@@ -30,7 +30,6 @@ const LEVEL_NAME = ['초급', '중급', '고급']
 const SettingPage = () => {
   const [local, setLocal] = useState(null)
   const [level, setLevel] = useState(null)
-  console.log(local)
   return (
     <div className={styles.settingPage}>
       <nav>
