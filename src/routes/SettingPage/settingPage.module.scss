@@ -1,58 +1,57 @@
-.settingPage{
-  width: 100%;
+.settingPage {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 
   & > nav {
     width: 100%;
     padding: 24px 0;
-    
+
 
     .doneIcon {
-        margin: 0 auto;
-        font-family: 'Work Sans';
-        font-size: normal;
-        font-weight: 550;
-        font-size: 17px;
-        float: right;
-        margin-right: 20px;
-    } 
+      float: right;
+      margin: 0 auto;
+      margin-right: 20px;
+      font-family: "Work Sans";
+      font-size: normal;
+      font-size: 17px;
+      font-weight: 550;
+    }
 
     .backIcon {
-        width: 20px;
-        margin-left: 20px;
+      width: 20px;
+      margin-left: 20px;
     }
   }
 
-
-  .content{
-    
+  .content {
     align-items: center;
 
     & > h1 {
-        text-align: center;
-        font-family: 'Work Sans';
-        font-weight: 550;
-        font-size: 20px;
-        margin-top: 37px;
-        margin-bottom: 24px;
+      margin-top: 37px;
+      margin-bottom: 24px;
+      font-family: "Work Sans";
+      font-size: 20px;
+      font-weight: 550;
+      text-align: center;
     }
-    
+
     .selector {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 13px 16px;
-    justify-content: space-between;
-    width: 288px;
-    margin-bottom: 65px;
-    &>h1{
-        font-family: 'Work Sans';
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px 16px;
+      justify-content: space-between;
+      width: 288px;
+      margin-bottom: 65px;
+
+      & > h1 {
+        font-family: "Work Sans";
+        font-size: 12px;
         font-style: normal;
         font-weight: 400;
-        font-size: 12px;
         line-height: 37px;
+      }
     }
-  }
   }
 }

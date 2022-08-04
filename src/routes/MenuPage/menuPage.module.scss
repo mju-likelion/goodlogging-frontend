@@ -1,58 +1,57 @@
-.menuPage{
+.menuPage {
+  width: 100%;
+
+  & > nav {
     width: 100%;
+    padding: 24px 0;
 
-    &>nav{
-        width: 100%;
-        padding: 24px 0;
-
-        &>button{
-            width: 20px;
-        }
-
-         .backIcon{
-        width: 20px;
-        margin-left: 20px;
+    & > button {
+      width: 20px;
     }
+
+    .backIcon {
+      width: 20px;
+      margin-left: 20px;
     }
+  }
 }
 
-.content{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-    .logout{
-        width: 325px;
-        height: 353px;
-        text-align: center;
-        font-size: 24px;
-        font-weight: 400;
-        margin-bottom: 10px;
-    }
+  .logout {
+    width: 325px;
+    height: 353px;
+    margin-bottom: 10px;
+    font-size: 24px;
+    font-weight: 400;
+    text-align: center;
+  }
 
-    .logout:hover{
-        background-color: #d9d9d9;
-        transition: 1s;
-    }
+  .logout:hover {
+    background-color: #d9d9d9;
+    transition: 1s;
+  }
 
-    .setting{
-        width: 325px;
-        height: 353px;
-        text-align: center;
-        font-size: 24px;
-        font-weight: 400;
-        margin-top: 11px;
-    }
+  .setting {
+    width: 325px;
+    height: 353px;
+    margin-top: 11px;
+    font-size: 24px;
+    font-weight: 400;
+    text-align: center;
+  }
 
-    .setting:hover{
-        background-color: #d9d9d9;
-        transition: 1s;
-    }
+  .setting:hover {
+    background-color: #d9d9d9;
+    transition: 1s;
+  }
 
-    .line{
-        height: 1px;
-        background-color: #d9d9d9;
-        width: 325px;
-    }
-
+  .line {
+    width: 325px;
+    height: 1px;
+    background-color: #d9d9d9;
+  }
 }
