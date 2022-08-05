@@ -5,6 +5,7 @@ import SettingPage from './routes/SettingPage'
 import LoginPage from './routes/LoginPage'
 import SignupPage from './routes/SignupPage'
 import MenuPage from './routes/MenuPage'
+import FeedPage from './routes/FeedPage'
 import CompletePage from './routes/CompletePage'
 import styles from './routes.module.scss'
 
@@ -17,6 +18,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/menu" element={<MenuPage />} />
+        <Route path="/feed" element={<FeedPage />} />
         <Route path="/complete" element={<CompletePage />} />
       </Routes>
     </div>
