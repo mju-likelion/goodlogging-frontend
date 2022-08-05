@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 
 import styles from './ploggingDoingPage.module.scss'
-import ProgressBar from './progressBar'
+import ProgressBar from './ProgressBar'
 
 const PloggingDoingPage = () => {
   const [count, setCount] = useState(0)

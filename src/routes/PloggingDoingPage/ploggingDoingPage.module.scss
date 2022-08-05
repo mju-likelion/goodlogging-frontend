@@ -22,7 +22,6 @@
 
 .progressWrap {
   position :relative;
-
 }
 
 .numberWrap {
@@ -50,13 +49,15 @@
   border-radius: 30px;
   font-size: 26px;
   background-color: #3F97FF;
-  color: 	#FFFFFF;
+  color: #FFFFFF;
   z-index: 2;
   position: absolute;
   top: -30px;
 }
 
-.finishButton:hover{ filter: brightness(50%); }
+.finishButton:hover{
+   filter: brightness(50%); 
+}
 
 .stopwatchWrap {
   position :relative;
