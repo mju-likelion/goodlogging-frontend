@@ -12,7 +12,8 @@ const MainPage = ({ percent }) => {
       <div className={styles.startDiv}>
         <button className={styles.startBtn}>START</button>
       </div>
-      <div className={styles.overveiwDiv}>
+      <div className={styles.overviewDiv}>
+        <h1 className={styles.smallTitle}>Overview</h1>
         <div className={styles.backDiv}>
           <div className={styles.buttonDiv}>
             <button className={styles.dayVeiw}>Day</button>
@@ -22,9 +23,15 @@ const MainPage = ({ percent }) => {
         </div>
       </div>
       <div className={styles.footerDiv}>
-        <button className={styles.menuBtn} />
-        <button className={styles.flogBtn} />
-        <button className={styles.hashBtn} />
+        <button className={styles.menuBtn}>
+          <img src="..\..\src\assets\pngs\menu.png" alt="menu" />
+        </button>
+        <button className={styles.flogBtn}>
+          <img src="src\assets\pngs\flogging.png" alt="flog" />
+        </button>
+        <button className={styles.hashBtn}>
+          <img src="src\assets\pngs\hashtag.png" alt="hash" />
+        </button>
       </div>
     </div>
   )

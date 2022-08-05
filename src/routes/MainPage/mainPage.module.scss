@@ -40,9 +40,7 @@
             height: 150px;
             border-radius: 50%;
             background-color: white;
-            //display: flex;
             text-align: center;
-            //align-items: center;
             line-height: 150px;
             font-family: 'Inter';
             font-style: normal;
@@ -61,4 +59,82 @@
             background-color: #d9d9d9;
         }
     }
+
+    .overviewDiv{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        .smallTitle{
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 800;
+            font-size: 20px;
+        }
+
+        .backDiv{
+            display: flex;
+            justify-content: center;
+            width: 354px;
+            height: 331px;
+            background-color: #EDEDED;
+            border-radius: 30px;
+            margin-top: 16px;
+            margin-bottom: 30px;
+
+            .buttonDiv{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: 21px;
+                width: 294px;
+                height: 57px;
+                border-radius: 30px;
+                background-color: #FFF;
+
+                .dayVeiw{
+                    width: 80px;
+                    height: 37px;
+                    border: 1px solid black;
+                    border-radius: 20px;
+                    font-family: 'Inter';
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 18px;
+                    line-height: 22px;
+                }
+                
+                .weekVeiw{
+                    width: 80px;
+                    height: 37px;
+                    border: 1px solid black;
+                    border-radius: 20px;
+                    margin-left: 5px;
+                    font-family: 'Inter';
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 18px;
+                    line-height: 22px;
+                }
+
+                .monthVeiw{
+                    width: 80px;
+                    height: 37px;
+                    border: 1px solid black;
+                    border-radius: 20px;
+                    margin-left: 5px;
+                    font-family: 'Inter';
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 18px;
+                    line-height: 22px;
+                }
+            }
+        }
+
+        
+    }
+
+
 }
