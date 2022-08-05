@@ -7,6 +7,7 @@ import SignupPage from './routes/SignupPage'
 import styles from './routes.module.scss'
 import MenuPage from './routes/MenuPage'
 import FeedPage from './routes/FeedPage'
+import MainPage from './routes/MainPage'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/menu" element={<MenuPage />} />
         <Route path="/feed" element={<FeedPage />} />
+        <Route path="/" element={<MainPage />} />
       </Routes>
     </div>
   )
