@@ -14,9 +14,27 @@ const Button = ({
   textSize,
   onClick,
   isSelected,
+  type,
+  disabled,
 }) => {
+  if (type === 'submit') {
+    return (
+      <button
+        type="submit"
+        className={cx('button', width, height, textColor, backColor, textSize, {
+          selected: isSelected,
+          disabled,
+        })}
+        disabled={disabled}
+      >
+        {text}
+      </button>
+    )
+  }
+
   return (
     <button
+      type="button"
       className={cx('button', width, height, textColor, backColor, textSize, {
         selected: isSelected,
       })}
@@ -37,6 +55,8 @@ Button.propTypes = {
   textSize: Proptypes.oneOf(['textLarge']),
   height: Proptypes.oneOf(['tall']),
   onClick: Proptypes.func,
+  type: Proptypes.oneOf(['button', 'submit']).isRequired,
+  disabled: Proptypes.bool,
 }
 
 export default Button

@@ -1,0 +1,507 @@
+.completePage {
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  height: 100vh;
+  min-height: 100vh;
+  background-color: #85bdff;
+
+  & > h1 {
+    z-index: 100;
+    margin-top: 40px;
+    font-size: 40px;
+    font-weight: 600;
+    text-align: center;
+    opacity: 0;
+    animation: title-animation 1s linear;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+  }
+
+  .content {
+    position: absolute;
+    right: 0;
+    bottom: -385px;
+    left: 0;
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 385px;
+    background-color: white;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+
+    .bedges {
+      position: absolute;
+      bottom: 290px;
+      z-index: 100;
+      display: flex;
+      justify-content: space-evenly;
+      width: 100%;
+      opacity: 0;
+      animation: bedges-animation 1s linear;
+      animation-delay: 1s;
+      animation-fill-mode: forwards;
+    }
+
+    .description {
+      z-index: 50;
+      margin-top: 130px;
+      font-size: 30px;
+      font-weight: 600;
+      letter-spacing: 0.8px;
+
+      & > mark {
+        z-index: 50;
+        color: #3f97ff;
+        background-color: transparent;
+      }
+    }
+
+    .time {
+      display: flex;
+      justify-content: space-evenly;
+      width: 100%;
+      margin-top: 40px;
+      font-size: 30px;
+      font-weight: 600;
+      letter-spacing: 0.8px;
+    }
+
+    .guide {
+      margin-top: 50px;
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 0.8px;
+    }
+
+    .nextStep {
+      position: absolute;
+      bottom: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #b9b9b9;
+      letter-spacing: 0.4px;
+    }
+  }
+
+  .box1 {
+    position: absolute;
+    bottom: 327px;
+    left: 54px;
+    z-index: -100;
+    width: 133px;
+    height: 133px;
+    background-color: white;
+    border-radius: 30px;
+    animation: box1-animation 1s linear;
+    animation-fill-mode: forwards;
+  }
+
+  .box2 {
+    position: absolute;
+    right: 67px;
+    bottom: 346px;
+    z-index: -100;
+    width: 165px;
+    height: 165px;
+    background-color: white;
+    border-radius: 30px;
+    transition-delay: 1s;
+    animation: box2-animation 1s linear;
+  }
+
+  .box3 {
+    position: absolute;
+    right: 20px;
+    bottom: 400px;
+    z-index: -100;
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    border-radius: 8px;
+    transition-delay: 1s;
+    transform: rotate(45deg);
+    animation: box3-animation 1s linear;
+  }
+
+  .box4 {
+    position: absolute;
+    bottom: 410px;
+    left: 20px;
+    z-index: -100;
+    width: 18px;
+    height: 18px;
+    background-color: white;
+    border-radius: 3px;
+    transition-delay: 1s;
+    transform: rotate(30deg);
+    animation: box4-animation 1s linear;
+  }
+
+  .box5 {
+    position: absolute;
+    right: 20px;
+    bottom: 500px;
+    z-index: -100;
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border-radius: 8px;
+    transition-delay: 1s;
+    transform: rotate(120deg);
+    animation: box5-animation 1s linear;
+  }
+
+  .box6 {
+    position: absolute;
+    bottom: 490px;
+    left: 20px;
+    z-index: -100;
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    border-radius: 8px;
+    transition-delay: 1s;
+    transform: rotate(170deg);
+    animation: box6-animation 1s linear;
+  }
+
+  .box7 {
+    position: absolute;
+    bottom: 600px;
+    left: 20px;
+    z-index: -100;
+    width: 120px;
+    height: 120px;
+    background-color: white;
+    border-radius: 30px;
+    transition-delay: 1s;
+    animation: box7-animation 1s linear;
+  }
+
+  .box8 {
+    position: absolute;
+    bottom: 600px;
+    left: 200px;
+    z-index: -100;
+    width: 45px;
+    height: 45px;
+    background-color: white;
+    border-radius: 8px;
+    transition-delay: 1s;
+    transform: rotate(45deg);
+    animation: box8-animation 1s linear;
+  }
+
+  .box9 {
+    position: absolute;
+    right: 20px;
+    bottom: 630px;
+    z-index: -100;
+    width: 100px;
+    height: 100px;
+    background-color: white;
+    border-radius: 20px;
+    transition-delay: 1s;
+    transform: rotate(170deg);
+    animation: box9-animation 1s linear;
+  }
+
+  .box10 {
+    position: absolute;
+    right: 170px;
+    bottom: 690px;
+    z-index: -100;
+    width: 18px;
+    height: 18px;
+    background-color: white;
+    border-radius: 3px;
+    transition-delay: 1s;
+    transform: rotate(170deg);
+    animation: box10-animation 1s linear;
+  }
+
+  .cheers {
+    position: absolute;
+    bottom: 385px;
+    left: 50%;
+    z-index: 50;
+    width: 224px;
+    opacity: 0;
+    transform: translateX(-50%) rotateX(90deg);
+    animation: cheers-animation 0.6s linear;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+  }
+
+  .isMounted {
+    transition: all 1s ease-in-out;
+    transform: translateY(-385px);
+  }
+}
+
+@keyframes box1-animation {
+  0% {
+    opacity: 0;
+    transform: translate(-60%, 100%);
+  }
+
+  50% {
+    opacity: 0;
+    transform: translate(-40%, 50%) rotate(1turn);
+  }
+
+  75% {
+    opacity: 1;
+    transform: translate(-20%, 25%) rotate(2turn);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0, 0)  rotate(3turn);
+  }
+}
+
+@keyframes box2-animation {
+  0% {
+    opacity: 0;
+    transform: translate(60%, 100%);
+  }
+
+  50% {
+    opacity: 0;
+    transform: translate(40%, 50%) rotate(1turn);
+  }
+
+  75% {
+    opacity: 1;
+    transform: translate(20%, 25%) rotate(2turn);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0, 0)  rotate(3turn);
+  }
+}
+
+@keyframes box3-animation {
+  0% {
+    opacity: 0;
+    transform: translate(-60%, 200%);
+  }
+
+  50% {
+    opacity: 0;
+    transform: translate(-40%, 100%) rotate(1turn);
+  }
+
+  75% {
+    opacity: 0;
+    transform: translate(-20%, 25%) rotate(2turn);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0, 0)  rotate(3turn);
+  }
+}
+
+@keyframes box4-animation {
+  0% {
+    opacity: 0;
+    transform: translate(400%, 400%);
+  }
+
+  50% {
+    opacity: 0;
+    transform: translate(400%, 400%);
+  }
+
+  90% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0, 0)  rotate(3turn);
+  }
+}
+
+@keyframes box5-animation {
+  0% {
+    opacity: 0;
+    transform: translate(-160%, 400%);
+  }
+
+  50% {
+    opacity: 0;
+    transform: translate(-80%, 200%) rotate(1turn);
+  }
+
+  75% {
+    opacity: 1;
+    transform: translate(-20%, 100%) rotate(2turn);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0, 0)  rotate(3turn);
+  }
+}
+
+@keyframes box6-animation {
+  0% {
+    opacity: 0;
+    transform: translate(160%, 400%);
+  }
+
+  50% {
+    opacity: 0;
+    transform: translate(80%, 200%) rotate(1turn);
+  }
+
+  75% {
+    opacity: 1;
+    transform: translate(40%, 100%) rotate(2turn);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0, 0)  rotate(3turn);
+  }
+}
+
+@keyframes box7-animation {
+  0% {
+    opacity: 0;
+    transform: translate(100%, 400%);
+  }
+
+  50% {
+    opacity: 0;
+    transform: translate(50%, 200%) rotate(1turn);
+  }
+
+  75% {
+    opacity: 1;
+    transform: translate(25%, 100%) rotate(2turn);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0, 0)  rotate(3turn);
+  }
+}
+
+@keyframes box8-animation {
+  0% {
+    opacity: 0;
+    transform: translate(0, 400%);
+  }
+
+  50% {
+    opacity: 0;
+    transform: translate(0, 200%) rotate(1turn);
+  }
+
+  75% {
+    opacity: 1;
+    transform: translate(0, 100%) rotate(2turn);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0, 0)  rotate(3turn);
+  }
+}
+
+@keyframes box9-animation {
+  0% {
+    opacity: 0;
+    transform: translate(-100%, 400%);
+  }
+
+  50% {
+    opacity: 0;
+    transform: translate(-50%, 200%) rotate(1turn);
+  }
+
+  75% {
+    opacity: 1;
+    transform: translate(-25%, 100%) rotate(2turn);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0, 0)  rotate(3turn);
+  }
+}
+
+@keyframes box10-animation {
+  0% {
+    opacity: 0;
+    transform: translate(300%, 200%);
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  75% {
+    opacity: 0;
+    transform: translate(300%, 200%) rotate(1turn);
+  }
+
+  90% {
+    opacity: 1;
+    transform: translate(150%, 100%) rotate(2turn);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0, 0)  rotate(3turn);
+  }
+}
+
+@keyframes cheers-animation {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) rotateX(90deg);
+    transform-origin: bottom;
+  }
+
+  50% {
+    opacity: 1;
+    transform: translateX(-50%) rotateX(-30deg);
+    transform-origin: bottom;
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) rotateX(0deg);
+    transform-origin: bottom;
+  }
+}
+
+@keyframes title-animation {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes bedges-animation {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

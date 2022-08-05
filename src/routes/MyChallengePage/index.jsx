@@ -1,4 +1,5 @@
-import { BackIcon } from '../../assets/svgs'
+import Gnb from '../../components/Gnb'
+import BackButton from '../../components/Buttons/BackButton'
 import Progress from '../../components/Progress'
 
 import styles from './myChallengePage.module.scss'
@@ -23,11 +24,9 @@ const MyChallengePage = () => {
 
   return (
     <div className={styles.myChallengePage}>
-      <nav>
-        <button type="button">
-          <BackIcon className={styles.backIcon} />
-        </button>
-      </nav>
+      <Gnb>
+        <BackButton />
+      </Gnb>
       <section className={styles.content}>
         <h1>{todayMonth}월 Challenge</h1>
         <div

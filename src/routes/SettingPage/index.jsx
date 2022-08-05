@@ -1,7 +1,9 @@
 import { useState } from 'react'
 
-import { BackIcon } from '../../assets/svgs'
-import Button from '../../components/Button'
+import Gnb from '../../components/Gnb'
+import Button from '../../components/Buttons/Button'
+import BackButton from '../../components/Buttons/BackButton'
+import CompleteButton from '../../components/Buttons/CompleteButton'
 
 import styles from './settingPage.module.scss'
 
@@ -32,14 +34,10 @@ const SettingPage = () => {
   const [level, setLevel] = useState(null)
   return (
     <div className={styles.settingPage}>
-      <nav>
-        <button type="button">
-          <BackIcon className={styles.backIcon} />
-        </button>
-        <button className={styles.doneIcon} type="button">
-          완료
-        </button>
-      </nav>
+      <Gnb>
+        <BackButton />
+        <CompleteButton />
+      </Gnb>
       <section className={styles.content}>
         <h1>플로깅 난이도</h1>
         <div className={styles.selector}>
