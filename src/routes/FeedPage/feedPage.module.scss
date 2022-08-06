@@ -1,0 +1,86 @@
+.contents{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .hotPlaceDiv{
+        display: flex;
+        flex-direction: column;
+        
+        margin-top: 41px;
+
+        .map{
+            width: 350px;
+            height: 280px;
+            background-color: gray;
+            
+        }
+
+        .titleSmall{
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 15px;
+            margin-bottom: 16px;
+        }
+    }
+
+
+    .rankDiv{
+        display: flex;
+        flex-direction: column;
+        margin-top: 34px;
+
+        .titleDiv{
+            display: flex;
+            justify-content: space-between;
+
+            .titleSmall{
+                font-family: 'Inter';
+                font-style: normal;
+                font-weight: 600;
+                font-size: 14px;
+                line-height: 15px;
+                margin-bottom: 16px;
+            }
+
+            
+
+            .buttonDiv{
+                display: flex;
+                flex-direction: row;
+                margin-bottom: 16px;
+            }
+            
+            .viewTime{
+                    font-family: 'Inter';
+                    font-style: normal;
+                    font-weight: 600;
+                    font-size: 14px;
+                    margin-bottom: 16px;                               
+                    margin-right: 3px;
+            }
+
+            .viewCount{
+                font-family: 'Inter';
+                font-style: normal;
+                font-weight: 600;
+                font-size: 14px;
+                margin-bottom: 16px;
+                margin-left: 3px;
+            }
+        }
+        
+
+        
+    
+    }
+    
+}
+
+
+
+

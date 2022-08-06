@@ -1,0 +1,43 @@
+.menuPage {
+  width: 100%;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .logout {
+    width: 325px;
+    height: 353px;
+    margin-bottom: 10px;
+    font-size: 24px;
+    font-weight: 400;
+    text-align: center;
+  }
+
+  .logout:hover {
+    background-color: #d9d9d9;
+    transition: 1s;
+  }
+
+  .setting {
+    width: 325px;
+    height: 353px;
+    margin-top: 11px;
+    font-size: 24px;
+    font-weight: 400;
+    text-align: center;
+  }
+
+  .setting:hover {
+    background-color: #d9d9d9;
+    transition: 1s;
+  }
+
+  .line {
+    width: 325px;
+    height: 1px;
+    background-color: #d9d9d9;
+  }
+}

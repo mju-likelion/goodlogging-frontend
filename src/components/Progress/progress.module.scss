@@ -1,0 +1,17 @@
+.progress {
+  width: 300px;
+  height: 5px;
+  background-color: #d9d9d9;
+}
+
+.progressDone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 0;
+  height: 5px;
+  color: #fff;
+  background: #209ac0;
+  opacity: 0;
+  transition: 1s ease 0.3s;
+}

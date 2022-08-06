@@ -1,14 +1,12 @@
 .myChallengePage {
   width: 100%;
-  border: 1px solid black;
-
-  & > nav {
-    width: 100%;
-    padding: 24px 0;
-    margin-left: 20px;
-  }
 
   .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
     & > h1 {
       margin-bottom: 34px;
       font-size: 30px;
@@ -34,24 +32,20 @@
     }
 
     .progress {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       font-size: 15px;
       font-weight: 400;
-      text-align: center;
 
-      .hour {
+      .leftHour {
+        margin-bottom: 5px;
         color: black;
       }
 
-      .progressBar {
-        width: 300px;
-        height: 4px;
-        margin: 0 auto;
-        margin-top: 13px;
-        margin-bottom: 13px;
-        background-color: #535353;
-      }
-
-      .day {
+      .leftDay {
+        margin-top: 5px;
+        margin-bottom: 142px;
         color: #4e4e4e;
       }
     }
