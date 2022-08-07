@@ -1,7 +1,5 @@
 import { useEffect, useState, useRef } from 'react'
 
-import styles from './ploggingDoingPage.module.scss'
-
 const ProgressBar = ({
   size,
   progress,
@@ -38,7 +36,6 @@ const ProgressBar = ({
           fill="none"
         />
         <circle
-          className={styles.inCircle}
           ref={circleRef}
           stroke={circleTwoStroke}
           cx={center}

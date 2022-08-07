@@ -1,16 +1,7 @@
 import RankProgress from '../../components/RankProgress'
+import useKakaoMap from '../../service/kakao/useKakaoMap'
 
 import styles from './feedPage.module.scss'
-/*
-const DUMMY_DATA = [
-  { name: '박은서', value: 200 },
-  { name: '이유정', value: 200 },
-  { name: '최유정', value: 200 },
-  { name: '김보현', value: 200 },
-  { name: '강형욱', value: 200 },
-  { name: '최현준', value: 200 },
-]
-*/
 
 const RANK_1 = 200
 const RANK_2 = 100
@@ -34,11 +25,13 @@ const RANK_5_RATIO = (RANK_5 / RANK_1) * 100
 const RANK_6_RATIO = (RANK_6 / RANK_1) * 100
 
 const FeedPage = () => {
+  useKakaoMap()
+
   return (
     <div className={styles.contents}>
       <div className={styles.hotPlaceDiv}>
         <p className={styles.titleSmall}>HOT PLACE</p>
-        <div className={styles.map} />
+        <div id="map" style={{ width: '400px', height: '500px' }} />
       </div>
       <div className={styles.rankDiv}>
         <div className={styles.titleDiv}>
@@ -49,7 +42,6 @@ const FeedPage = () => {
             <button className={styles.viewCount}>개수</button>
           </div>
         </div>
-
         <RankProgress count={RANK_1} ratio={RANK_1_RATIO} name={NAME_1} />
         <RankProgress count={RANK_2} ratio={RANK_2_RATIO} name={NAME_2} />
         <RankProgress count={RANK_3} ratio={RANK_3_RATIO} name={NAME_3} />
