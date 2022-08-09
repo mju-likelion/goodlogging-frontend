@@ -75,7 +75,8 @@
 
         .backDiv{
             display: flex;
-            justify-content: center;
+            align-items: center;
+            flex-direction: column;
             width: 354px;
             height: 331px;
             background-color: #EDEDED;
@@ -92,48 +93,27 @@
                 height: 57px;
                 border-radius: 30px;
                 background-color: #FFF;
-
-                .dayVeiw{
-                    width: 80px;
-                    height: 37px;
-                    border: 1px solid black;
-                    border-radius: 20px;
-                    font-family: 'Inter';
-                    font-style: normal;
-                    font-weight: 700;
-                    font-size: 18px;
-                    line-height: 22px;
-                }
-                
-                .weekVeiw{
-                    width: 80px;
-                    height: 37px;
-                    border: 1px solid black;
-                    border-radius: 20px;
-                    margin-left: 5px;
-                    font-family: 'Inter';
-                    font-style: normal;
-                    font-weight: 700;
-                    font-size: 18px;
-                    line-height: 22px;
-                }
-
-                .monthVeiw{
-                    width: 80px;
-                    height: 37px;
-                    border: 1px solid black;
-                    border-radius: 20px;
-                    margin-left: 5px;
-                    font-family: 'Inter';
-                    font-style: normal;
-                    font-weight: 700;
-                    font-size: 18px;
-                    line-height: 22px;
-                }
             }
+
+            .chartDiv{
+                display: flex;
+                align-items: center;
+                margin-left: 45px;
+                margin-top: 40px;
         }
+            
+          
+        }
+      
 
         
+    }
+
+    .footerDiv{
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: 31px;
     }
 
 
