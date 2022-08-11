@@ -2,8 +2,7 @@ import { useEffect } from 'react'
 
 const { kakao } = window
 
-export default function useKakaoMap() {
-  console.log(kakao)
+const KakaoMap = () => {
   useEffect(() => {
     const container = document.getElementById('map')
     const options = {
@@ -13,4 +12,13 @@ export default function useKakaoMap() {
     // eslint-disable-next-line no-new
     new kakao.maps.Map(container, options)
   }, [])
+
+  return (
+    <div
+      id="map"
+      style={{ width: '333px', height: '289px', borderRadius: '10px' }}
+    />
+  )
 }
+
+export default KakaoMap

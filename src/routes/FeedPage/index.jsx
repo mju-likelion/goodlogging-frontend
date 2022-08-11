@@ -1,5 +1,5 @@
 import RankProgress from '../../components/RankProgress'
-import useKakaoMap from '../../service/kakao/useKakaoMap'
+import KakaoMap from '../../service/kakao/KakaoMap'
 
 import styles from './feedPage.module.scss'
 
@@ -25,13 +25,11 @@ const RANK_5_RATIO = (RANK_5 / RANK_1) * 100
 const RANK_6_RATIO = (RANK_6 / RANK_1) * 100
 
 const FeedPage = () => {
-  useKakaoMap()
-
   return (
     <div className={styles.contents}>
       <div className={styles.hotPlaceDiv}>
         <p className={styles.titleSmall}>HOT PLACE</p>
-        <div id="map" style={{ width: '400px', height: '500px' }} />
+        <KakaoMap />
       </div>
       <div className={styles.rankDiv}>
         <div className={styles.titleDiv}>
