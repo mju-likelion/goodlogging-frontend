@@ -1,0 +1,37 @@
+.wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 294px;
+  height: 57px;
+  padding: 0 14px;
+  background-color: white;
+  border-radius: 30px;
+
+  .button {
+    width: 80px;
+    height: 37px;
+    line-height: 37px;
+    text-align: center;
+    border-radius: 20px;
+  }
+
+  .selector {
+    position: absolute;
+    width: 80px;
+    height: 37px;
+    background-color: #bababa;
+    border-radius: 20px;
+    opacity: 0.5;
+    transition: all 0.5s ease-in-out;
+  }
+
+  .button2 {
+    transform: translateX(92px);
+  }
+
+  .button3 {
+    transform: translateX(185px);
+  }
+}
