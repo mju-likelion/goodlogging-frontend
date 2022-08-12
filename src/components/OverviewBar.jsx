@@ -1,9 +1,9 @@
-import React from 'react'
+import { useState } from 'react'
 
 import styles from './overViewBar.module.scss'
 
 const OverviewBar = ({ done }) => {
-  const [style, setStyle] = React.useState({})
+  const [style, setStyle] = useState({})
 
   setTimeout(() => {
     const newStyle = {
