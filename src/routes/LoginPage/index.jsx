@@ -1,16 +1,24 @@
 import { useForm } from 'react-hook-form'
+import { useNavigate } from 'react-router-dom'
 
+import goodLogging from '../../service/goodlogging'
 import Button from '../../components/Buttons/Button'
 
 import styles from './loginPage.module.scss'
 
 const LoginPage = () => {
+  const navigate = useNavigate()
   const { register, handleSubmit, formState } = useForm({
     mode: 'onChange',
   })
 
-  const onSubmit = (userInput) => {
+  const onSubmit = async (userInput) => {
     console.log(userInput)
+    const response = await goodLogging.login(
+      userInput.email,
+      userInput.password,
+    )
+    console.log(response)
   }
 
   return (
@@ -42,7 +50,14 @@ const LoginPage = () => {
         type="submit"
         disabled={!formState.isValid}
       />
-      <button className={styles.signupButton}>회원가입</button>
+      <button
+        className={styles.signupButton}
+        onClick={() => {
+          navigate('/signup')
+        }}
+      >
+        회원가입
+      </button>
     </form>
   )
 }
