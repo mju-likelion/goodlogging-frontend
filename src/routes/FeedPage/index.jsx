@@ -1,5 +1,5 @@
 import RankProgress from '../../components/RankProgress'
-import KakaoMap from '../../service/kakao/KakaoMap'
+import HotPlace from '../../service/kakao/HotPlace'
 
 import styles from './feedPage.module.scss'
 
@@ -29,7 +29,7 @@ const FeedPage = () => {
     <div className={styles.contents}>
       <div className={styles.hotPlaceDiv}>
         <p className={styles.titleSmall}>HOT PLACE</p>
-        <KakaoMap />
+        <HotPlace location="구월1동" />
       </div>
       <div className={styles.rankDiv}>
         <div className={styles.titleDiv}>
