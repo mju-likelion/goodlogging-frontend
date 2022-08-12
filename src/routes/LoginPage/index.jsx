@@ -1,47 +1,49 @@
-import { useState } from 'react'
+import { useForm } from 'react-hook-form'
+
+import Button from '../../components/Buttons/Button'
 
 import styles from './loginPage.module.scss'
 
 const LoginPage = () => {
-  const [inputId, setInputId] = useState('')
-  const [inputPw, setInputPw] = useState('')
+  const { register, handleSubmit, formState } = useForm({
+    mode: 'onChange',
+  })
 
-  const handleInputId = (e) => {
-    setInputId(e.target.value)
-  }
-
-  const handleInputPw = (e) => {
-    setInputPw(e.target.value)
-  }
-
-  const onClickLogin = () => {
-    // console.log('click login')
+  const onSubmit = (userInput) => {
+    console.log(userInput)
   }
 
   return (
-    <div className={styles.loginPage}>
+    <form className={styles.loginPage} onSubmit={handleSubmit(onSubmit)}>
       <div className={styles.inputWrapper}>
         <input
           className={styles.loginInput}
-          name="id"
-          value={inputId}
-          onChange={handleInputId}
           placeholder="이메일"
+          {...register('email', {
+            required: true,
+            // eslint-disable-next-line no-useless-escape
+            pattern: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,})+$/,
+          })}
         />
         <input
           className={styles.loginInput}
           type="password"
-          name="pw"
-          value={inputPw}
-          onChange={handleInputPw}
           placeholder="비밀번호"
+          {...register('password', { required: true, minLength: 8 })}
         />
       </div>
-      <button className={styles.loginButton} onClick={onClickLogin}>
-        로그인
-      </button>
+      <Button
+        text="로그인"
+        width="large"
+        height="tall"
+        textColor="textWhite"
+        backColor="backBlue"
+        textSize="textLarge"
+        type="submit"
+        disabled={!formState.isValid}
+      />
       <button className={styles.signupButton}>회원가입</button>
-    </div>
+    </form>
   )
 }
 
