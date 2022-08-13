@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import plog from '../../assets/pngs/flogging.png'
 import hash from '../../assets/pngs/hashtag.png'
 import menu from '../../assets/pngs/menu.png'
+import ToggleButton from '../../components/Buttons/ToggleButton'
 
 import Chart from './Chart'
 import styles from './mainPage.module.scss'
@@ -43,7 +44,9 @@ const MainPage = ({ percent }) => {
       <div className={styles.overview}>
         <h1 className={styles.smallTitle}>Overview</h1>
         <div className={styles.back}>
-          <div className={styles.button}>토글스위치</div>
+          <div className={styles.button}>
+            <ToggleButton />
+          </div>
           <div className={styles.chart}>
             <Chart data={data} />
           </div>
