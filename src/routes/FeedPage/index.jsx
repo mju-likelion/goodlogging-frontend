@@ -1,4 +1,4 @@
-import RankProgress from '../../components/RankProgress'
+import RankProgress from '../../components/RankProgess'
 import KakaoMap from '../../service/kakao/KakaoMap'
 
 import styles from './feedPage.module.scss'
