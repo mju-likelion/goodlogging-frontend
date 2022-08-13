@@ -5,6 +5,7 @@ import hash from '../../assets/pngs/hashtag.png'
 import menu from '../../assets/pngs/menu.png'
 import Chart from '../../components/Chart'
 
+import Slider from './Slider/index'
 import styles from './mainPage.module.scss'
 
 const data = [
@@ -30,13 +31,20 @@ const data = [
   },
 ]
 
-const MainPage = ({ percent }) => {
-  const text1 = `월간 목표 ${percent || 77}% 달성 중!`
+const MainPage = ({ percent, time, person }) => {
+  const arr = [
+    `월간 목표 ${percent || 77}% 달성 중!`,
+    `지난 달 보다 ${time || 3}시간 더 했어요!`,
+    `${person || 23}명의 굿로거가 달리는 중!`,
+  ]
+
   const navigate = useNavigate()
 
   return (
     <div className={styles.mainPage}>
-      <div className={styles.headPopUp}>{text1}</div>
+      <div className={styles.headPopUp}>
+        <Slider sliderDate={arr} />
+      </div>
       <div className={styles.start}>
         <button className={styles.startBtn}>START</button>
       </div>
