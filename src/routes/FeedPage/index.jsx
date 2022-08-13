@@ -1,3 +1,5 @@
+import BackButton from '../../components/Buttons/BackButton'
+import Gnb from '../../components/Gnb'
 import RankProgress from '../../components/RankProgess'
 import KakaoMap from '../../service/kakao/KakaoMap'
 
@@ -27,6 +29,9 @@ const RANK_6_RATIO = (RANK_6 / RANK_1) * 100
 const FeedPage = () => {
   return (
     <div className={styles.contents}>
+      <Gnb>
+        <BackButton />
+      </Gnb>
       <div className={styles.hotPlace}>
         <p className={styles.titleSmall}>HOT PLACE</p>
         <KakaoMap />
