@@ -37,19 +37,19 @@ const MainPage = ({ percent }) => {
   return (
     <div className={styles.mainPage}>
       <div className={styles.headPopUp}>{text1}</div>
-      <div className={styles.startDiv}>
+      <div className={styles.start}>
         <button className={styles.startBtn}>START</button>
       </div>
-      <div className={styles.overviewDiv}>
+      <div className={styles.overview}>
         <h1 className={styles.smallTitle}>Overview</h1>
-        <div className={styles.backDiv}>
-          <div className={styles.buttonDiv}>토글스위치</div>
-          <div className={styles.chartDiv}>
+        <div className={styles.back}>
+          <div className={styles.button}>토글스위치</div>
+          <div className={styles.chart}>
             <Chart data={data} />
           </div>
         </div>
       </div>
-      <div className={styles.footerDiv}>
+      <div className={styles.footer}>
         <button
           onClick={() => {
             navigate('/menu')
