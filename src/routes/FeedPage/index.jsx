@@ -1,34 +1,35 @@
 import RankProgress from '../../components/RankProgress'
+import KakaoMap from '../../service/kakao/KakaoMap'
 
 import styles from './feedPage.module.scss'
 
+const RANK_1 = 200
+const RANK_2 = 100
+const RANK_3 = 50
+const RANK_4 = 40
+const RANK_5 = 30
+const RANK_6 = 20
+
+const NAME_1 = '박은서'
+const NAME_2 = '이유정'
+const NAME_3 = '김보현'
+const NAME_4 = '최현준'
+const NAME_5 = '강현욱'
+const NAME_6 = '배한조'
+
+const RANK_1_RATIO = 100
+const RANK_2_RATIO = (RANK_2 / RANK_1) * 100
+const RANK_3_RATIO = (RANK_3 / RANK_1) * 100
+const RANK_4_RATIO = (RANK_4 / RANK_1) * 100
+const RANK_5_RATIO = (RANK_5 / RANK_1) * 100
+const RANK_6_RATIO = (RANK_6 / RANK_1) * 100
+
 const FeedPage = () => {
-  const RANK_1 = 200
-  const RANK_2 = 100
-  const RANK_3 = 50
-  const RANK_4 = 40
-  const RANK_5 = 30
-  const RANK_6 = 20
-
-  const NAME_1 = '박은서'
-  const NAME_2 = '이유정'
-  const NAME_3 = '김보현'
-  const NAME_4 = '최현준'
-  const NAME_5 = '강현욱'
-  const NAME_6 = '배한조'
-
-  const RANK_1_RATIO = 100
-  const RANK_2_RATIO = (RANK_2 / RANK_1) * 100
-  const RANK_3_RATIO = (RANK_3 / RANK_1) * 100
-  const RANK_4_RATIO = (RANK_4 / RANK_1) * 100
-  const RANK_5_RATIO = (RANK_5 / RANK_1) * 100
-  const RANK_6_RATIO = (RANK_6 / RANK_1) * 100
-
   return (
     <div className={styles.contents}>
       <div className={styles.hotPlaceDiv}>
         <p className={styles.titleSmall}>HOT PLACE</p>
-        <div className={styles.map} />
+        <KakaoMap />
       </div>
       <div className={styles.rankDiv}>
         <div className={styles.titleDiv}>
