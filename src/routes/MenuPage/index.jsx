@@ -11,7 +11,11 @@ const MenuPage = () => {
   return (
     <div className={styles.menuPage}>
       <Gnb>
-        <BackButton />
+        <BackButton
+          onClick={() => {
+            navigate('/')
+          }}
+        />
       </Gnb>
       <section className={styles.content}>
         <button className={styles.logout}>로그아웃</button>
