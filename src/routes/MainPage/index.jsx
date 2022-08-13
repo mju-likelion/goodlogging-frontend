@@ -39,7 +39,14 @@ const MainPage = ({ percent }) => {
     <div className={styles.mainPage}>
       <div className={styles.headPopUp}>{text1}</div>
       <div className={styles.start}>
-        <button className={styles.startBtn}>START</button>
+        <button
+          className={styles.startBtn}
+          onClick={() => {
+            navigate('/plogging')
+          }}
+        >
+          START
+        </button>
       </div>
       <div className={styles.overview}>
         <h1 className={styles.smallTitle}>Overview</h1>
@@ -61,12 +68,7 @@ const MainPage = ({ percent }) => {
         >
           <img src={menu} alt="menu" />
         </button>
-        <button
-          onClick={() => {
-            navigate('/plogging')
-          }}
-          className={styles.plogBtn}
-        >
+        <button className={styles.plogBtn}>
           <img src={plog} alt="plog" />
         </button>
         <button

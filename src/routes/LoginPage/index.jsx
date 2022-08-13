@@ -1,5 +1,7 @@
 import { useState } from 'react'
 
+import logo from '../../assets/pngs/darkblue.png'
+
 import styles from './loginPage.module.scss'
 
 const LoginPage = () => {
@@ -21,6 +23,7 @@ const LoginPage = () => {
   return (
     <div className={styles.loginPage}>
       <div className={styles.inputWrapper}>
+        <img className={styles.logo} src={logo} alt="logo" />
         <input
           className={styles.loginInput}
           name="id"
