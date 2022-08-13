@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom'
 import plog from '../../assets/pngs/flogging.png'
 import hash from '../../assets/pngs/hashtag.png'
 import menu from '../../assets/pngs/menu.png'
-import Chart from '../../components/Chart'
 
+import Chart from './Chart'
 import styles from './mainPage.module.scss'
 
 const data = [

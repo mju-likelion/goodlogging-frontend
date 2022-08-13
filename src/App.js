@@ -9,7 +9,6 @@ import FeedPage from './routes/FeedPage'
 import MainPage from './routes/MainPage'
 import CompletePage from './routes/CompletePage'
 import PloggingDoingPage from './routes/PloggingDoingPage'
-
 import styles from './routes.module.scss'
 
 function App() {
