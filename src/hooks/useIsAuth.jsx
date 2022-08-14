@@ -12,8 +12,6 @@ const useIsAuth = () => {
   const navigate = useNavigate()
   const location = useLocation()
 
-  console.log(localStorage.getItem('token'))
-
   useEffect(() => {
     const storedToken = localStorage.getItem('token')
 

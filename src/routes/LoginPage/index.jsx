@@ -17,7 +17,6 @@ const LoginPage = () => {
   })
 
   const onSubmit = async (userInput) => {
-    console.log(userInput)
     dispatch(login({ email: userInput.email, password: userInput.password }))
   }
 

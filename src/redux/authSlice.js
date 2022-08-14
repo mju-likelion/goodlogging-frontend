@@ -11,9 +11,7 @@ const initialState = {
 }
 
 export const login = createAsyncThunk('authSlice/login', async (loginData) => {
-  console.log(loginData)
   const response = await Goodlogging.login(loginData.email, loginData.password)
-  console.log(response)
   const { token } = response.data
   localStorage.setItem('token', token)
 
