@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useLocation, useNavigate } from 'react-router-dom'
 
-import { logout } from '../redux/authSlice'
+import { logout, refresh } from '../redux/authSlice'
 
 const { localStorage } = window
 
@@ -15,11 +15,9 @@ const useIsAuth = () => {
   console.log(localStorage.getItem('token'))
 
   useEffect(() => {
-    if (
-      !auth.isAuthenticated ||
-      !auth.token ||
-      !localStorage.getItem('token')
-    ) {
+    const storedToken = localStorage.getItem('token')
+
+    if (!auth.isAuthenticated || !auth.token || !storedToken) {
       dispatch(logout())
       navigate('/login')
     }
@@ -28,6 +26,10 @@ const useIsAuth = () => {
       if (auth.isAuthenticated && auth.token) {
         navigate('/')
       }
+    }
+
+    if (storedToken && !auth.isAuthenticated) {
+      dispatch(refresh(storedToken))
     }
   }, [auth, dispatch, location.pathname, navigate])
 }

@@ -29,6 +29,11 @@ export const authSlice = createSlice({
       state.isAuthenticated = false
       state.token = undefined
     },
+    refresh: (state, payload) => {
+      state.status = 'success'
+      state.isAuthenticated = true
+      state.token = payload
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(login.pending, (state) => {
@@ -47,5 +52,5 @@ export const authSlice = createSlice({
   },
 })
 
-export const { logout } = authSlice.actions
+export const { logout, refresh } = authSlice.actions
 export default authSlice.reducer
