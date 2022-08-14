@@ -8,6 +8,7 @@ const initialState = {
   isAuthenticated: false,
   token: undefined,
   status: undefined,
+  error: null,
 }
 
 export const login = createAsyncThunk('authSlice/login', async (loginData) => {
@@ -42,11 +43,13 @@ export const authSlice = createSlice({
       state.status = 'success'
       state.isAuthenticated = true
       state.token = payload
+      state.error = null
     })
-    builder.addCase(login.rejected, (state) => {
+    builder.addCase(login.rejected, (state, action) => {
       state.status = 'fail'
       state.isAuthenticated = false
       state.token = undefined
+      state.error = action.error
     })
   },
 })
