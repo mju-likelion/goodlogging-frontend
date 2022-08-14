@@ -1,50 +1,67 @@
-import { useState } from 'react'
+import { useForm } from 'react-hook-form'
+import { useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
 
+import { login } from '../../redux/authSlice'
+import Button from '../../components/Buttons/Button'
+import useIsAuth from '../../hooks/useIsAuth'
 import logo from '../../assets/pngs/darkblue.png'
 
 import styles from './loginPage.module.scss'
 
 const LoginPage = () => {
-  const [inputId, setInputId] = useState('')
-  const [inputPw, setInputPw] = useState('')
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  useIsAuth()
 
-  const handleInputId = (e) => {
-    setInputId(e.target.value)
-  }
+  const { register, handleSubmit, formState } = useForm({
+    mode: 'onChange',
+  })
 
-  const handleInputPw = (e) => {
-    setInputPw(e.target.value)
-  }
-
-  const onClickLogin = () => {
-    // console.log('click login')
+  const onSubmit = async (userInput) => {
+    console.log(userInput)
+    dispatch(login({ email: userInput.email, password: userInput.password }))
   }
 
   return (
-    <div className={styles.loginPage}>
+    <form className={styles.loginPage} onSubmit={handleSubmit(onSubmit)}>
       <div className={styles.inputWrapper}>
         <img className={styles.logo} src={logo} alt="logo" />
         <input
           className={styles.loginInput}
-          name="id"
-          value={inputId}
-          onChange={handleInputId}
           placeholder="이메일"
+          {...register('email', {
+            required: true,
+            // eslint-disable-next-line no-useless-escape
+            pattern: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,})+$/,
+          })}
         />
         <input
           className={styles.loginInput}
           type="password"
-          name="pw"
-          value={inputPw}
-          onChange={handleInputPw}
           placeholder="비밀번호"
+          {...register('password', { required: true, minLength: 4 })}
         />
       </div>
-      <button className={styles.loginButton} onClick={onClickLogin}>
-        로그인
+      <Button
+        text="로그인"
+        width="large"
+        height="tall"
+        textColor="textWhite"
+        backColor="backBlue"
+        textSize="textLarge"
+        type="submit"
+        disabled={!formState.isValid}
+      />
+      <button
+        className={styles.signupButton}
+        onClick={() => {
+          navigate('/signup')
+        }}
+      >
+        회원가입
       </button>
-      <button className={styles.signupButton}>회원가입</button>
-    </div>
+    </form>
   )
 }
 
