@@ -1,12 +1,14 @@
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
 
-import goodLogging from '../../service/goodlogging'
+import { login } from '../../redux/authSlice'
 import Button from '../../components/Buttons/Button'
 
 import styles from './loginPage.module.scss'
 
 const LoginPage = () => {
+  const dispatch = useDispatch()
   const navigate = useNavigate()
   const { register, handleSubmit, formState } = useForm({
     mode: 'onChange',
@@ -14,11 +16,7 @@ const LoginPage = () => {
 
   const onSubmit = async (userInput) => {
     console.log(userInput)
-    const response = await goodLogging.login(
-      userInput.email,
-      userInput.password,
-    )
-    console.log(response)
+    dispatch(login({ email: userInput.email, password: userInput.password }))
   }
 
   return (
@@ -37,7 +35,7 @@ const LoginPage = () => {
           className={styles.loginInput}
           type="password"
           placeholder="비밀번호"
-          {...register('password', { required: true, minLength: 8 })}
+          {...register('password', { required: true, minLength: 4 })}
         />
       </div>
       <Button
