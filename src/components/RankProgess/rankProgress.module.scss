@@ -1,0 +1,47 @@
+.rankProgress {
+  position: relative;
+  width: 300px;
+  height: 50px;
+  background-color: #d9d9d9;
+  border-radius: 20px;
+
+  .userName {
+    position: absolute;
+    top: 20px;
+    left: 15px;
+    display: flex;
+    align-items: center;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    color: black;
+  }
+}
+
+.rankProgressCount {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 0;
+  height: 50px;
+  background: linear-gradient(to left, #66d9e8, #63e6be);
+  border-radius: 20px;
+  box-shadow: 0 3px 3px -5px #66d9e8, 0 2px 5px #66d9e8;
+  opacity: 0;
+  transition: 1s ease 0.3s;
+}
+
+.rankCount {
+  margin-left: 17px;
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.progressDiv {
+  display: flex;
+  align-items: center;
+  margin-bottom: 9px;
+}

@@ -1,10 +1,15 @@
 import { useState, useEffect } from 'react'
 
+import BackButton from '../../components/Buttons/BackButton'
+import Gnb from '../../components/Gnb'
+
 import styles from './ploggingDoingPage.module.scss'
 import ProgressBar from './ProgressBar'
 
 const PloggingDoingPage = () => {
   const [count, setCount] = useState(0)
+  const [time, setTime] = useState(0)
+  const [timerOn, setTimeOn] = useState(true)
   // const [color, setColor] = useState('#3F97FF')
 
   const level = 30 // 초급 중급 고급에 따라 바뀌어야 됨
@@ -29,12 +34,6 @@ const PloggingDoingPage = () => {
   function addCount() {
     setCount(count + 1)
   }
-  const clickMenu = () => {
-    // console.log('clicked menu')
-  }
-
-  const [time, setTime] = useState(0)
-  const [timerOn, setTimeOn] = useState(true)
 
   useEffect(() => {
     let interval = null
@@ -53,11 +52,9 @@ const PloggingDoingPage = () => {
   return (
     <div className={styles.ploggingWrap}>
       <div>
-        <div className={styles.menu}>
-          <button onClick={clickMenu}>
-            <img alt="menu" src="img/menubar.png" />
-          </button>
-        </div>
+        <Gnb>
+          <BackButton />
+        </Gnb>
         <div>
           <div className={styles.progressOutWrap}>
             <ProgressBar className={styles.progressWrap} {...state} />

@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux'
 import { login } from '../../redux/authSlice'
 import Button from '../../components/Buttons/Button'
 import useIsAuth from '../../hooks/useIsAuth'
+import logo from '../../assets/pngs/darkblue.png'
 
 import styles from './loginPage.module.scss'
 
@@ -25,6 +26,7 @@ const LoginPage = () => {
   return (
     <form className={styles.loginPage} onSubmit={handleSubmit(onSubmit)}>
       <div className={styles.inputWrapper}>
+        <img className={styles.logo} src={logo} alt="logo" />
         <input
           className={styles.loginInput}
           placeholder="이메일"
