@@ -4,7 +4,6 @@ import { useDispatch } from 'react-redux'
 
 import { login } from '../../redux/authSlice'
 import Button from '../../components/Buttons/Button'
-import useIsAuth from '../../hooks/useIsAuth'
 import logo from '../../assets/pngs/darkblue.png'
 
 import styles from './loginPage.module.scss'
@@ -12,7 +11,6 @@ import styles from './loginPage.module.scss'
 const LoginPage = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  useIsAuth()
 
   const { register, handleSubmit, formState } = useForm({
     mode: 'onChange',
