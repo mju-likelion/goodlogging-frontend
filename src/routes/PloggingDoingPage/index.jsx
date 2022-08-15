@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 
 import BackButton from '../../components/Buttons/BackButton'
 import Gnb from '../../components/Gnb'
+import { getCoordInfo } from '../../util/geolocation'
 
 import styles from './ploggingDoingPage.module.scss'
 import ProgressBar from './ProgressBar'
@@ -31,8 +32,10 @@ const PloggingDoingPage = () => {
     }
   }
 
-  function addCount() {
+  async function addCount() {
     setCount(count + 1)
+    const result = await getCoordInfo()
+    console.log(result)
   }
 
   useEffect(() => {
