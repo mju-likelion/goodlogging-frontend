@@ -7,12 +7,15 @@
   background-color: #85bdff;
 
   & > h1 {
+    position: absolute;
+    top: 100px;
+    left: 50%;
     z-index: 100;
-    margin-top: 40px;
     font-size: 40px;
     font-weight: 600;
     text-align: center;
     opacity: 0;
+    transform: translateX(-50%);
     animation: title-animation 1s linear;
     animation-delay: 1s;
     animation-fill-mode: forwards;

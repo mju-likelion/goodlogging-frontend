@@ -1,9 +1,11 @@
+import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
 import plog from '../../assets/pngs/flogging.png'
 import hash from '../../assets/pngs/hashtag.png'
 import menu from '../../assets/pngs/menu.png'
 import ToggleButton from '../../components/Buttons/ToggleButton'
+import { start } from '../../redux/ploggingSlice'
 
 import Chart from './Chart'
 import styles from './mainPage.module.scss'
@@ -34,6 +36,7 @@ const data = [
 const MainPage = ({ percent }) => {
   const text1 = `월간 목표 ${percent || 77}% 달성 중!`
   const navigate = useNavigate()
+  const dispatch = useDispatch()
 
   return (
     <div className={styles.mainPage}>
@@ -41,7 +44,8 @@ const MainPage = ({ percent }) => {
       <div className={styles.start}>
         <button
           className={styles.startBtn}
-          onClick={() => {
+          onClick={async () => {
+            dispatch(start())
             navigate('/plogging')
           }}
         >
