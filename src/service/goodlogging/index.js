@@ -37,9 +37,9 @@ export default {
       method: 'post',
     })
   },
-  endPlogging() {
+  endPlogging(id) {
     return Axios({
-      url: '/plogging/start',
+      url: `/plogging/end/${id}`,
       method: 'post',
     })
   },

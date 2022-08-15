@@ -1,13 +1,17 @@
 import { useState, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
 import BackButton from '../../components/Buttons/BackButton'
 import Gnb from '../../components/Gnb'
+import { end } from '../../redux/ploggingSlice'
 import { getCoordInfo } from '../../util/geolocation'
 
 import styles from './ploggingDoingPage.module.scss'
 import ProgressBar from './ProgressBar'
 
 const PloggingDoingPage = () => {
+  const plogging = useSelector((state) => state.plogging)
+  const dispatch = useDispatch()
   const [count, setCount] = useState(0)
   const [time, setTime] = useState(0)
   const [timerOn, setTimeOn] = useState(true)
@@ -75,7 +79,10 @@ const PloggingDoingPage = () => {
               <div className={styles.stopwatchWrap}>
                 <button
                   className={styles.finishButton}
-                  onClick={() => setTimeOn(false)}
+                  onClick={() => {
+                    setTimeOn(false)
+                    dispatch(end(plogging.id))
+                  }}
                 >
                   끝내기
                 </button>

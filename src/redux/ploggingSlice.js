@@ -13,8 +13,12 @@ export const start = createAsyncThunk('ploggingSlice/start', async () => {
   const {
     data: { id },
   } = response
-  console.log(response)
   return id
+})
+
+export const end = createAsyncThunk('ploggingSlice/end', async (id) => {
+  const response = await Goodlogging.endPlogging(id)
+  return response
 })
 
 export const ploggingSlice = createSlice({
@@ -24,11 +28,6 @@ export const ploggingSlice = createSlice({
     start: (state, payload) => {
       state.isPlogging = true
       state.id = payload
-    },
-    end: (state) => {
-      state.isPlogging = false
-      state.id = undefined
-      state.status = 'success'
     },
   },
   extraReducers: (builder) => {
@@ -45,8 +44,23 @@ export const ploggingSlice = createSlice({
       state.id = undefined
       state.isPlogging = false
     })
+    builder.addCase(end.pending, (state) => {
+      state.status = 'loading'
+      state.id = undefined
+      state.isPlogging = false
+    })
+    builder.addCase(end.fulfilled, (state) => {
+      state.status = 'success'
+      state.id = undefined
+      state.isPlogging = false
+    })
+    builder.addCase(end.rejected, (state) => {
+      state.status = 'fail'
+      state.id = undefined
+      state.isPlogging = false
+    })
   },
 })
 
-export const { end } = ploggingSlice.actions
+// export const {} = ploggingSlice.actions
 export default ploggingSlice.reducer
