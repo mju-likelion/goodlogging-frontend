@@ -6,6 +6,7 @@ const initialState = {
   isPlogging: false,
   id: undefined,
   status: undefined,
+  trash: 0,
 }
 
 export const start = createAsyncThunk('ploggingSlice/start', async () => {
@@ -18,7 +19,10 @@ export const start = createAsyncThunk('ploggingSlice/start', async () => {
 
 export const end = createAsyncThunk('ploggingSlice/end', async (id) => {
   const response = await Goodlogging.endPlogging(id)
-  return response
+  const {
+    data: { trash },
+  } = response
+  return trash
 })
 
 export const ploggingSlice = createSlice({
@@ -28,6 +32,7 @@ export const ploggingSlice = createSlice({
     start: (state, payload) => {
       state.isPlogging = true
       state.id = payload
+      state.trash = 0
     },
   },
   extraReducers: (builder) => {
@@ -49,10 +54,11 @@ export const ploggingSlice = createSlice({
       state.id = undefined
       state.isPlogging = false
     })
-    builder.addCase(end.fulfilled, (state) => {
+    builder.addCase(end.fulfilled, (state, { payload }) => {
       state.status = 'success'
       state.id = undefined
       state.isPlogging = false
+      state.trash = payload
     })
     builder.addCase(end.rejected, (state) => {
       state.status = 'fail'

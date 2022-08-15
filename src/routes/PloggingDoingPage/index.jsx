@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 
 import Goodlogging from '../../service/goodlogging'
 import BackButton from '../../components/Buttons/BackButton'
@@ -11,6 +12,7 @@ import styles from './ploggingDoingPage.module.scss'
 import ProgressBar from './ProgressBar'
 
 const PloggingDoingPage = () => {
+  const navigate = useNavigate()
   const plogging = useSelector((state) => state.plogging)
   const dispatch = useDispatch()
   const [count, setCount] = useState(0)
@@ -61,6 +63,12 @@ const PloggingDoingPage = () => {
     await Goodlogging.plogging(plogging.id, latitude, longitude, region)
   }
 
+  const handleEnd = () => {
+    setTimeOn(false)
+    dispatch(end(plogging.id))
+    navigate('/complete')
+  }
+
   return (
     <div className={styles.ploggingWrap}>
       <div>
@@ -82,13 +90,7 @@ const PloggingDoingPage = () => {
           <div>
             <div>
               <div className={styles.stopwatchWrap}>
-                <button
-                  className={styles.finishButton}
-                  onClick={() => {
-                    setTimeOn(false)
-                    dispatch(end(plogging.id))
-                  }}
-                >
+                <button className={styles.finishButton} onClick={handleEnd}>
                   끝내기
                 </button>
                 <div className={styles.stopwatch}>
