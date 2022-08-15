@@ -14,7 +14,6 @@ export default {
       },
     })
   },
-
   login(email, password) {
     return Axios({
       url: '/auth/login',
@@ -22,6 +21,16 @@ export default {
       data: {
         email,
         password,
+      },
+    })
+  },
+  user(level, address) {
+    return Axios({
+      url: '/user',
+      method: 'put',
+      data: {
+        level,
+        address,
       },
     })
   },
