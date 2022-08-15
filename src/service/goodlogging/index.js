@@ -25,4 +25,22 @@ export default {
       },
     })
   },
+  startPlogging() {
+    return Axios({
+      url: '/plogging/start',
+      method: 'post',
+    })
+  },
+  plogging() {
+    return Axios({
+      url: '/plogging/start',
+      method: 'post',
+    })
+  },
+  endPlogging() {
+    return Axios({
+      url: '/plogging/start',
+      method: 'post',
+    })
+  },
 }
