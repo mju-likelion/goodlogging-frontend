@@ -31,15 +31,15 @@ export default {
       method: 'post',
     })
   },
-  plogging() {
-    return Axios({
-      url: '/plogging/start',
-      method: 'post',
-    })
-  },
   endPlogging(id) {
     return Axios({
       url: `/plogging/end/${id}`,
+      method: 'post',
+    })
+  },
+  plogging(id, latitude, longitude, district) {
+    return Axios({
+      url: `/trash/${id}?lat=${latitude}&lon=${longitude}&district=${district}`,
       method: 'post',
     })
   },

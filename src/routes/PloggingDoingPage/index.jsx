@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
+import Goodlogging from '../../service/goodlogging'
 import BackButton from '../../components/Buttons/BackButton'
 import Gnb from '../../components/Gnb'
 import { end } from '../../redux/ploggingSlice'
@@ -38,8 +39,6 @@ const PloggingDoingPage = () => {
 
   async function addCount() {
     setCount(count + 1)
-    const result = await getCoordInfo()
-    console.log(result)
   }
 
   useEffect(() => {
@@ -56,6 +55,12 @@ const PloggingDoingPage = () => {
     return () => clearInterval(interval)
   }, [timerOn])
 
+  const handlePlogging = async () => {
+    addCount()
+    const { region, latitude, longitude } = await getCoordInfo()
+    await Goodlogging.plogging(plogging.id, latitude, longitude, region)
+  }
+
   return (
     <div className={styles.ploggingWrap}>
       <div>
@@ -66,7 +71,7 @@ const PloggingDoingPage = () => {
           <div className={styles.progressOutWrap}>
             <ProgressBar className={styles.progressWrap} {...state} />
             <div className={styles.numberWrap}>
-              <button className={styles.trashCounter} onClick={addCount}>
+              <button className={styles.trashCounter} onClick={handlePlogging}>
                 {count}
               </button>
               <div className={styles.goal}>
