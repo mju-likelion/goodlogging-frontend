@@ -1,7 +1,9 @@
+import RankProgress from '../../components/RankProgress'
+import HotPlace from '../../service/kakao/HotPlace'
 import BackButton from '../../components/Buttons/BackButton'
 import Gnb from '../../components/Gnb'
 import RankProgress from '../../components/RankProgess'
-import KakaoMap from '../../service/kakao/KakaoMap'
+
 
 import styles from './feedPage.module.scss'
 
@@ -34,7 +36,7 @@ const FeedPage = () => {
       </Gnb>
       <div className={styles.hotPlace}>
         <p className={styles.titleSmall}>HOT PLACE</p>
-        <KakaoMap />
+        <HotPlace location="구월1동" />
       </div>
       <div className={styles.rank}>
         <div className={styles.title}>
