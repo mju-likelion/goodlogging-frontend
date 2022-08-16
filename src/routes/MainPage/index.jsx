@@ -13,6 +13,7 @@ import Chart from './Chart'
 import styles from './mainPage.module.scss'
 
 const MainPage = ({ percent }) => {
+  const [view, setView] = useState('week')
   const text1 = `월간 목표 ${percent || 77}% 달성 중!`
   const navigate = useNavigate()
   const dispatch = useDispatch()
@@ -21,11 +22,12 @@ const MainPage = ({ percent }) => {
   const sortByDay = (arr) => {
     return arr.reduce((acc, cur) => {
       const date = `${cur.date.year}-${cur.date.month}-${cur.date.day}`
-      if (acc.find((item) => item[date])) {
+      if (acc.find((item) => item.name === date)) {
         return acc.map((item) => {
-          if (Object.keys(item)[0] === date) {
+          if (item.name === date) {
             return {
-              [date]: item[date] + cur.number,
+              name: date,
+              trash: item.trash + cur.number,
             }
           }
           return item
@@ -34,7 +36,8 @@ const MainPage = ({ percent }) => {
       return [
         ...acc,
         {
-          [date]: cur.number,
+          name: date,
+          trash: cur.number,
         },
       ]
     }, [])
@@ -54,14 +57,31 @@ const MainPage = ({ percent }) => {
         number: ploggingItem.trashes.length,
       }
     })
-    setData(sortByDay(sortedData))
-  }, [setData])
+
+    const sortedByDayData = sortByDay(sortedData)
+
+    console.log(sortedByDayData)
+    switch (view) {
+      case 'week':
+        if (sortedByDayData.length > 7) {
+          setData(sortedByDayData.slice(-7))
+          break
+        }
+        for (let i = 0, length = sortedByDayData.length; i < 7 - length; i++) {
+          sortedByDayData.push({})
+        }
+        setData(sortedByDayData)
+        break
+      default:
+        break
+    }
+  }, [view])
 
   useEffect(() => {
     getPloggingData()
   }, [getPloggingData])
 
-  console.log(data)
+  console.log(view)
   return (
     <div className={styles.mainPage}>
       <div className={styles.headPopUp}>{text1}</div>
@@ -80,7 +100,7 @@ const MainPage = ({ percent }) => {
         <h1 className={styles.smallTitle}>Overview</h1>
         <div className={styles.back}>
           <div className={styles.button}>
-            <ToggleButton />
+            <ToggleButton view={view} setView={setView} />
           </div>
           <div className={styles.chart}>
             <Chart data={data} />
