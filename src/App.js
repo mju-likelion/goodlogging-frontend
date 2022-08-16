@@ -11,21 +11,23 @@ import MainPage from './routes/MainPage'
 import CompletePage from './routes/CompletePage'
 import PloggingDoingPage from './routes/PloggingDoingPage'
 import styles from './routes.module.scss'
+import MyinfoPage from './routes/MyinfoPage'
 
 function App() {
   useIsAuth()
   return (
     <div className={styles.wrapper}>
       <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route path="/signup" element={<SignupPage />} />
+        <Route path="/login" element={<LoginPage />} />
         <Route path="/mychallenge" element={<MyChallengePage />} />
         <Route path="/setting" element={<SettingPage />} />
-        <Route path="/login" element={<LoginPage />} />
         <Route path="/plogging" element={<PloggingDoingPage />} />
-        <Route path="/signup" element={<SignupPage />} />
         <Route path="/menu" element={<MenuPage />} />
         <Route path="/feed" element={<FeedPage />} />
-        <Route path="/" element={<MainPage />} />
         <Route path="/complete" element={<CompletePage />} />
+        <Route path="/myinfo" element={<MyinfoPage />} />
       </Routes>
     </div>
   )
