@@ -43,4 +43,10 @@ export default {
       method: 'post',
     })
   },
+  getPloggingInfo() {
+    return Axios({
+      url: '/plogging',
+      method: 'get',
+    })
+  },
 }

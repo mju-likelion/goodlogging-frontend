@@ -1,6 +1,8 @@
+import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
+import Goodlogging from '../../service/goodlogging'
 import plog from '../../assets/pngs/flogging.png'
 import hash from '../../assets/pngs/hashtag.png'
 import menu from '../../assets/pngs/menu.png'
@@ -37,6 +39,15 @@ const MainPage = ({ percent }) => {
   const text1 = `월간 목표 ${percent || 77}% 달성 중!`
   const navigate = useNavigate()
   const dispatch = useDispatch()
+
+  const getPloggingData = async () => {
+    const { data } = await Goodlogging.getPloggingInfo()
+    console.log(data.result)
+  }
+
+  useEffect(() => {
+    getPloggingData()
+  }, [])
 
   return (
     <div className={styles.mainPage}>
