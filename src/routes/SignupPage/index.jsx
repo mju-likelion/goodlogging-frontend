@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
+import { useNavigate } from 'react-router-dom'
 
+import Goodlogging from '../../service/goodlogging'
 import Button from '../../components/Buttons/Button'
 
 import styles from './signupPage.module.scss'
@@ -28,14 +30,22 @@ const LOCAL_NAMES = [
 const LEVEL_NAME = ['초급', '중급', '고급']
 
 const SignupPage = () => {
+  const navigate = useNavigate()
   const { register, handleSubmit, formState } = useForm({
     mode: 'onChange',
   })
   const [local, setLocal] = useState(null)
+  const [level, setLevel] = useState(null)
 
-  const onSubmit = (data) => {
-    console.log(data)
-    console.log('isValid:', formState.isValid)
+  const onSubmit = async (userInput) => {
+    await Goodlogging.createUser(
+      userInput.username,
+      userInput.email,
+      userInput.password,
+      level,
+      local,
+    )
+    navigate('/login')
   }
 
   return (
@@ -88,8 +98,8 @@ const SignupPage = () => {
               width="small"
               textColor="textBlack"
               backColor="backGrey"
-              onClick={setLocal}
-              isSelected={item === local}
+              onClick={setLevel}
+              isSelected={item === level}
             />
           ))}
         </div>
@@ -101,7 +111,7 @@ const SignupPage = () => {
           backColor="backBlue"
           textSize="textLarge"
           type="submit"
-          disabled={!formState.isValid || !local}
+          disabled={!formState.isValid || !local || !level}
         />
       </form>
     </div>
