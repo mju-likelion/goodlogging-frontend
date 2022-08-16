@@ -4,8 +4,8 @@
   align-items: center;
 
   & > h1 {
-    margin-top: 53px;
-    margin-bottom: 75px;
+    margin-top: 50px;
+    margin-bottom: 50px;
     font-size: 25px;
     font-weight: 600;
   }
@@ -35,13 +35,31 @@
     margin-bottom: 16px;
   }
 
-  .selector {
+  .localSelector {
     display: flex;
     flex-wrap: wrap;
     gap: 13px 16px;
     justify-content: space-between;
     width: 288px;
-    margin-bottom: 65px;
+    margin-bottom: 5px;
+
+    & > h1 {
+      font-family: "Work Sans";
+      font-size: 10px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 37px;
+      color: aqua;
+    }
+  }
+
+  .levelSelector {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 13px 16px;
+    justify-content: space-between;
+    width: 288px;
+    margin-bottom: 30px;
 
     & > h1 {
       font-family: "Work Sans";

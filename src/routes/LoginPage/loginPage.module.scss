@@ -6,6 +6,19 @@
   width: 100%;
   margin-top: 282px;
   margin-bottom: 281px;
+
+  .inputWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-bottom: 42px;
+    font-size: 20px;
+
+    .logo {
+      width: 249px;
+      margin: 0 auto;
+    }
+  }
 }
 
 .loginInput {
@@ -14,13 +27,6 @@
   text-indent: 10px;
   background-color: #f0f0f0;
   border-radius: 20px;
-}
-
-.inputWrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  font-size: 20px;
 }
 
 .loginButton {

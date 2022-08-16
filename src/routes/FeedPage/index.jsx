@@ -1,5 +1,9 @@
 import RankProgress from '../../components/RankProgress'
 import HotPlace from '../../service/kakao/HotPlace'
+import BackButton from '../../components/Buttons/BackButton'
+import Gnb from '../../components/Gnb'
+import RankProgress from '../../components/RankProgess'
+
 
 import styles from './feedPage.module.scss'
 
@@ -27,16 +31,19 @@ const RANK_6_RATIO = (RANK_6 / RANK_1) * 100
 const FeedPage = () => {
   return (
     <div className={styles.contents}>
-      <div className={styles.hotPlaceDiv}>
+      <Gnb>
+        <BackButton />
+      </Gnb>
+      <div className={styles.hotPlace}>
         <p className={styles.titleSmall}>HOT PLACE</p>
         <HotPlace location="구월1동" />
       </div>
-      <div className={styles.rankDiv}>
-        <div className={styles.titleDiv}>
+      <div className={styles.rank}>
+        <div className={styles.title}>
           <p className={styles.titleSmall}>RANK</p>
-          <div className={styles.buttonDiv}>
+          <div className={styles.buttonWrapper}>
             <button className={styles.viewTime}>시간</button>
-            <p className={styles.titleSmall}>|</p>
+            <p className={styles.divider}>|</p>
             <button className={styles.viewCount}>개수</button>
           </div>
         </div>

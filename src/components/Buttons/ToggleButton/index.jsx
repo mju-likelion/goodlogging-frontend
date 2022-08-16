@@ -9,7 +9,7 @@ const ToggleButton = () => {
   const [item, setItem] = useState(null)
 
   const handleSelectItem = (e) => {
-    setItem(e.target.innerText)
+    setItem(e.target.innerText.toLowerCase())
   }
 
   return (

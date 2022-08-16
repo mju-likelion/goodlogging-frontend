@@ -7,12 +7,15 @@
   background-color: #85bdff;
 
   & > h1 {
+    position: absolute;
+    top: 100px;
+    left: 50%;
     z-index: 100;
-    margin-top: 40px;
     font-size: 40px;
     font-weight: 600;
     text-align: center;
     opacity: 0;
+    transform: translateX(-50%);
     animation: title-animation 1s linear;
     animation-delay: 1s;
     animation-fill-mode: forwards;
@@ -35,7 +38,7 @@
 
     .bedges {
       position: absolute;
-      bottom: 290px;
+      bottom: 326px;
       z-index: 100;
       display: flex;
       justify-content: space-evenly;
@@ -226,9 +229,9 @@
 
   .cheers {
     position: absolute;
-    bottom: 385px;
+    bottom: 382px;
     left: 50%;
-    z-index: 50;
+    z-index: 0;
     width: 224px;
     opacity: 0;
     transform: translateX(-50%) rotateX(90deg);
