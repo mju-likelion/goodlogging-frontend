@@ -1,9 +1,7 @@
-import RankProgress from '../../components/RankProgress'
 import HotPlace from '../../service/kakao/HotPlace'
 import BackButton from '../../components/Buttons/BackButton'
 import Gnb from '../../components/Gnb'
 import RankProgress from '../../components/RankProgess'
-
 
 import styles from './feedPage.module.scss'
 
