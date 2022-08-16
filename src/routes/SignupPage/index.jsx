@@ -25,6 +25,8 @@ const LOCAL_NAMES = [
   '세종',
 ]
 
+const LEVEL_NAME = ['초급', '중급', '고급']
+
 const SignupPage = () => {
   const { register, handleSubmit, formState } = useForm({
     mode: 'onChange',
@@ -38,7 +40,7 @@ const SignupPage = () => {
 
   return (
     <div className={styles.signupPage}>
-      <h1>회원 가입</h1>
+      <h1>회원가입</h1>
       <form className={styles.signupForm} onSubmit={handleSubmit(onSubmit)}>
         <input
           className={styles.textInput}
@@ -63,7 +65,7 @@ const SignupPage = () => {
           {...register('username', { required: true, minLength: 2 })}
         />
         <p className={styles.label}>지역</p>
-        <div className={styles.selector}>
+        <div className={styles.localSelector}>
           {LOCAL_NAMES.map((item) => (
             <Button
               key={item}
@@ -74,6 +76,20 @@ const SignupPage = () => {
               onClick={setLocal}
               isSelected={item === local}
               type="button"
+            />
+          ))}
+        </div>
+        <p className={styles.label}>레벨</p>
+        <div className={styles.levelSelector}>
+          {LEVEL_NAME.map((item) => (
+            <Button
+              key={item}
+              text={item}
+              width="small"
+              textColor="textBlack"
+              backColor="backGrey"
+              onClick={setLocal}
+              isSelected={item === local}
             />
           ))}
         </div>

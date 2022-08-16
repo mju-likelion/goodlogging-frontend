@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom'
 
-import useIsAuth from './hooks/useIsAuth'
+// import useIsAuth from './hooks/useIsAuth'
 import MyChallengePage from './routes/MyChallengePage'
 import SettingPage from './routes/SettingPage'
 import LoginPage from './routes/LoginPage'
@@ -13,7 +13,7 @@ import PloggingDoingPage from './routes/PloggingDoingPage'
 import styles from './routes.module.scss'
 
 function App() {
-  useIsAuth()
+  // useIsAuth()
   return (
     <div className={styles.wrapper}>
       <Routes>

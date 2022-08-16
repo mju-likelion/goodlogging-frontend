@@ -14,7 +14,6 @@ export default {
       },
     })
   },
-
   login(email, password) {
     return Axios({
       url: '/auth/login',
