@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useCallback, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
@@ -12,43 +12,56 @@ import { start } from '../../redux/ploggingSlice'
 import Chart from './Chart'
 import styles from './mainPage.module.scss'
 
-const data = [
-  {
-    name: 'DAY_1',
-    cnt: 58,
-  },
-  {
-    name: 'DAY_2',
-    cnt: 62,
-  },
-  {
-    name: 'DAY_3',
-    cnt: 45,
-  },
-  {
-    name: 'DAY_4',
-    cnt: 12,
-  },
-  {
-    name: 'DAY_5',
-    cnt: 38,
-  },
-]
-
 const MainPage = ({ percent }) => {
   const text1 = `월간 목표 ${percent || 77}% 달성 중!`
   const navigate = useNavigate()
   const dispatch = useDispatch()
+  const [data, setData] = useState(null)
 
-  const getPloggingData = async () => {
-    const { data } = await Goodlogging.getPloggingInfo()
-    console.log(data.result)
+  const sortByDay = (arr) => {
+    return arr.reduce((acc, cur) => {
+      const date = `${cur.date.year}-${cur.date.month}-${cur.date.day}`
+      if (acc.find((item) => item[date])) {
+        return acc.map((item) => {
+          if (Object.keys(item)[0] === date) {
+            return {
+              [date]: item[date] + cur.number,
+            }
+          }
+          return item
+        })
+      }
+      return [
+        ...acc,
+        {
+          [date]: cur.number,
+        },
+      ]
+    }, [])
   }
+
+  const getPloggingData = useCallback(async () => {
+    const { data } = await Goodlogging.getPloggingInfo()
+
+    const sortedData = data.result.map((ploggingItem) => {
+      const date = new Date(ploggingItem.plogging.createdAt)
+      return {
+        date: {
+          year: date.getFullYear(),
+          month: date.getMonth(),
+          day: date.getDay(),
+        },
+        number: ploggingItem.trashes.length,
+      }
+    })
+    setData(sortByDay(sortedData))
+  }, [setData])
 
   useEffect(() => {
     getPloggingData()
-  }, [])
+  }, [getPloggingData])
 
+  console.log(data)
   return (
     <div className={styles.mainPage}>
       <div className={styles.headPopUp}>{text1}</div>
