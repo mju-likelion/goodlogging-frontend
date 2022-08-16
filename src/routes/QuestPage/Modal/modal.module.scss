@@ -1,0 +1,76 @@
+.modalWrap{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  
+  .modalBackGround{
+    width: 100%;
+    height: 100%;
+    opacity: .7;
+    background-color: grey;
+
+  }
+
+  .modalBox{
+    position: absolute;
+    background-color: white;
+    width: 100%;
+    height: 300px;
+    bottom: -300px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: slide-top 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    
+
+    & > img{
+      width: 120px;
+      height: 120px;
+    }
+
+    .modalName{
+      font-size: 22px;
+      margin-top: 15px;
+    }
+
+    .modalContent{
+      font-size: 18px;
+      margin-top: 15px;
+      line-height: 22px;
+    }
+
+    .modalCondition{
+      color: #7A7A7A;
+      opacity: 0.4;
+      position: absolute;
+      bottom: 20px;
+    }
+  }
+}
+
+@keyframes slide-top {
+  0% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+  100% {
+    -webkit-transform: translate(0,-300px);
+            transform: translate(0,-300px);
+  }
+}
+
+@keyframes slide-bottom {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(100px);
+            transform: translateY(100px);
+  }
+}
