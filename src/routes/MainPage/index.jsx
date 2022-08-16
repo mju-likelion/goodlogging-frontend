@@ -75,23 +75,13 @@ const MainPage = ({ percent }) => {
         </div>
       </div>
       <div className={styles.footer}>
-        <button
-          onClick={() => {
-            navigate('/menu')
-          }}
-          className={styles.menuBtn}
-        >
+        <button onClick={() => navigate('/menu')} className={styles.menuBtn}>
           <img src={menu} alt="menu" />
         </button>
-        <button className={styles.plogBtn}>
+        <button onClick={() => navigate('/myinfo')} className={styles.plogBtn}>
           <img src={plog} alt="plog" />
         </button>
-        <button
-          className={styles.hashBtn}
-          onClick={() => {
-            navigate('/feed')
-          }}
-        >
+        <button className={styles.hashBtn} onClick={() => navigate('/feed')}>
           <img src={hash} alt="hash" />
         </button>
       </div>

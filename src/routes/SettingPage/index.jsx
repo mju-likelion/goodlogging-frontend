@@ -1,5 +1,7 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
+import Goodlogging from '../../service/goodlogging'
 import Gnb from '../../components/Gnb'
 import Button from '../../components/Buttons/Button'
 import BackButton from '../../components/Buttons/BackButton'
@@ -30,13 +32,23 @@ const LOCAL_NAMES = [
 const LEVEL_NAME = ['초급', '중급', '고급']
 
 const SettingPage = () => {
+  const navigate = useNavigate()
   const [local, setLocal] = useState(null)
   const [level, setLevel] = useState(null)
+
+  const handleSubmit = async () => {
+    if (!local || !level) {
+      return
+    }
+    await Goodlogging.user(level, local)
+    navigate('/')
+  }
+
   return (
     <div className={styles.settingPage}>
       <Gnb>
         <BackButton />
-        <CompleteButton />
+        <CompleteButton onClick={handleSubmit} />
       </Gnb>
       <section className={styles.content}>
         <h1>플로깅 난이도</h1>

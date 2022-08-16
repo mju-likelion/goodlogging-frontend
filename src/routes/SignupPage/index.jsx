@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
+import { useNavigate } from 'react-router-dom'
 
+import Goodlogging from '../../service/goodlogging'
 import Button from '../../components/Buttons/Button'
 
 import styles from './signupPage.module.scss'
@@ -25,20 +27,30 @@ const LOCAL_NAMES = [
   '세종',
 ]
 
+const LEVEL_NAME = ['초급', '중급', '고급']
+
 const SignupPage = () => {
+  const navigate = useNavigate()
   const { register, handleSubmit, formState } = useForm({
     mode: 'onChange',
   })
   const [local, setLocal] = useState(null)
+  const [level, setLevel] = useState(null)
 
-  const onSubmit = (data) => {
-    console.log(data)
-    console.log('isValid:', formState.isValid)
+  const onSubmit = async (userInput) => {
+    await Goodlogging.createUser(
+      userInput.username,
+      userInput.email,
+      userInput.password,
+      level,
+      local,
+    )
+    navigate('/login')
   }
 
   return (
     <div className={styles.signupPage}>
-      <h1>회원 가입</h1>
+      <h1>회원가입</h1>
       <form className={styles.signupForm} onSubmit={handleSubmit(onSubmit)}>
         <input
           className={styles.textInput}
@@ -63,7 +75,7 @@ const SignupPage = () => {
           {...register('username', { required: true, minLength: 2 })}
         />
         <p className={styles.label}>지역</p>
-        <div className={styles.selector}>
+        <div className={styles.localSelector}>
           {LOCAL_NAMES.map((item) => (
             <Button
               key={item}
@@ -77,6 +89,20 @@ const SignupPage = () => {
             />
           ))}
         </div>
+        <p className={styles.label}>레벨</p>
+        <div className={styles.levelSelector}>
+          {LEVEL_NAME.map((item) => (
+            <Button
+              key={item}
+              text={item}
+              width="small"
+              textColor="textBlack"
+              backColor="backGrey"
+              onClick={setLevel}
+              isSelected={item === level}
+            />
+          ))}
+        </div>
         <Button
           text="회원가입 완료"
           width="large"
@@ -85,7 +111,7 @@ const SignupPage = () => {
           backColor="backBlue"
           textSize="textLarge"
           type="submit"
-          disabled={!formState.isValid || !local}
+          disabled={!formState.isValid || !local || !level}
         />
       </form>
     </div>
