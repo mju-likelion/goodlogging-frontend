@@ -19,6 +19,7 @@
       width: 365px;
       height: 55px;
       padding: 0 22px;
+      margin-bottom: 30px;
       background-color: #f0f0f0;
       border-radius: 20px;
 
@@ -31,8 +32,8 @@
   .label {
     width: 365px;
     padding-left: 10px;
-    margin-top: 39px;
-    margin-bottom: 16px;
+    margin-top: 5px;
+    margin-bottom: 5px;
   }
 
   .selector {
@@ -41,7 +42,7 @@
     gap: 13px 16px;
     justify-content: space-between;
     width: 288px;
-    margin-bottom: 65px;
+    margin-bottom: 30px;
 
     & > h1 {
       font-family: "Work Sans";

@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 
 import Button from '../../components/Buttons/Button'
+import Slider from '../../components/Slider'
 
 import styles from './signupPage.module.scss'
 
@@ -40,6 +41,7 @@ const SignupPage = () => {
     <div className={styles.signupPage}>
       <h1>회원 가입</h1>
       <form className={styles.signupForm} onSubmit={handleSubmit(onSubmit)}>
+        <p className={styles.label}>이메일</p>
         <input
           className={styles.textInput}
           type="email"
@@ -50,12 +52,14 @@ const SignupPage = () => {
             pattern: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,})+$/,
           })}
         />
+        <p className={styles.label}>ID</p>
         <input
           className={styles.textInput}
           placeholder="password"
           type="password"
           {...register('password', { required: true, minLength: 8 })}
         />
+        <p className={styles.label}>비밀번호</p>
         <input
           className={styles.textInput}
           placeholder="username"
@@ -77,6 +81,8 @@ const SignupPage = () => {
             />
           ))}
         </div>
+        <p className={styles.label}>나의 플로깅 실력</p>
+        <Slider />
         <Button
           text="회원가입 완료"
           width="large"

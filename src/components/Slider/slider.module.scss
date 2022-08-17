@@ -1,0 +1,55 @@
+.container {
+  width: 270px;
+  margin: auto;
+}
+
+.rangeLabels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+input[type="range"] {
+  z-index: 3;
+  appearance: none;
+  width: 270px;
+  height: 3px;
+  background-color: #d5d4d3;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  margin-top: -20px;
+  background-color: #3f96ff;
+  border: 3px solid #aad0ff;
+  border-radius: 50%;
+  outline: none;
+  box-shadow: 0 2px 5px rgb(0 0 0 / 30%);
+}
+
+.dots {
+  position: relative;
+  z-index: -1;
+  display: flex;
+  justify-content: space-between;
+}
+
+.dotsDot {
+  width: 17px;
+  height: 17px;
+  margin-top: -11.7px;
+  background-color: #d5d4d3;
+  border-radius: 1rem;
+}
+
+.item {
+  width: 20rem;
+  height: 5rem;
+  font-size: 2rem;
+  font-weight: bold;
+  line-height: 5rem;
+  color: rgb(10 11 11 / 33%);
+  vertical-align: center;
+}
