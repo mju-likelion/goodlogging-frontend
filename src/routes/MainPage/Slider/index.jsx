@@ -1,47 +1,53 @@
-import { useState, useEffect } from 'react'
+import { useState, useRef, useEffect } from 'react'
 
 import styles from './slider.module.scss'
 
-const Slider = ({ sliderData }) => {
-  const [currentSlide, setCurrentSlide] = useState(0)
-  const slideLength = sliderData.length
-  const autoScroll = true
-  const intervalTime = 5000
+const colors = ['transparent', 'transparent', 'transparent']
+const delay = 2500
 
-  const nextSlide = () => {
-    setCurrentSlide(currentSlide === slideLength - 1 ? 0 : currentSlide + 1)
-  }
+function Slide({ sliderData }) {
+  const [index, setIndex] = useState(0)
+  const timeoutRef = useRef(null)
 
-  let slideInterval
-  const auto = () => {
-    slideInterval = setInterval(nextSlide, intervalTime)
+  function resetTimeout() {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current)
+    }
   }
 
   useEffect(() => {
-    if (autoScroll) {
-      auto()
+    resetTimeout()
+    timeoutRef.current = setTimeout(
+      () =>
+        setIndex((prevIndex) =>
+          prevIndex === colors.length - 1 ? 0 : prevIndex + 1,
+        ),
+      delay,
+    )
+
+    return () => {
+      resetTimeout()
     }
-  }, [currentSlide])
+  }, [index])
+
   return (
-    <div className={styles.slider}>
-      {sliderData.map((slide, index) => {
-        return (
+    <div className={styles.slideshow}>
+      <div
+        className={styles.slideshowSlider}
+        style={{ transform: `translate3d(${-index * 100}%, 0, 0)` }}
+      >
+        {sliderData.map((data, index) => (
           <div
-            className={
-              index === currentSlide ? 'styles.slideCurrent' : 'styles.slide'
-            }
+            className={styles.slide}
             key={index}
+            style={{ backgroundColor: 'transparent' }}
           >
-            {index === currentSlide && (
-              <div className={styles.contents}>
-                <p>{slide}</p>
-              </div>
-            )}
+            {data}
           </div>
-        )
-      })}
+        ))}
+      </div>
     </div>
   )
 }
 
-export default Slider
+export default Slide

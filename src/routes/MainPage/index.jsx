@@ -5,7 +5,7 @@ import hash from '../../assets/pngs/hashtag.png'
 import menu from '../../assets/pngs/menu.png'
 import Chart from '../../components/Chart'
 
-import Slider from './Slider/index'
+import Slider from './Slider'
 import styles from './mainPage.module.scss'
 
 const data = [
@@ -43,7 +43,7 @@ const MainPage = ({ percent, time, person }) => {
   return (
     <div className={styles.mainPage}>
       <div className={styles.headPopUp}>
-        <Slider sliderDate={arr} />
+        <Slider sliderData={arr} />
       </div>
       <div className={styles.start}>
         <button className={styles.startBtn}>START</button>
