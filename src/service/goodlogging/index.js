@@ -52,4 +52,10 @@ export default {
       method: 'post',
     })
   },
+  inquireFeed(sorted = 'time') {
+    return Axios({
+      url: `/feed?sorted=${sorted}`,
+      method: 'get',
+    })
+  },
 }

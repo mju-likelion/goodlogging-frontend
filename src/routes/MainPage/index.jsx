@@ -75,11 +75,11 @@ const MainPage = ({ percent, time, person }) => {
         <button onClick={() => navigate('/menu')} className={styles.menuBtn}>
           <img src={menu} alt="menu" />
         </button>
-        <button onClick={() => navigate('/myinfo')} className={styles.plogBtn}>
-          <img src={plog} alt="plog" />
+        <button onClick={() => navigate('/feed')} className={styles.plogBtn}>
+          <img src={plog} alt="feed" />
         </button>
-        <button className={styles.hashBtn} onClick={() => navigate('/feed')}>
-          <img src={hash} alt="hash" />
+        <button className={styles.hashBtn} onClick={() => navigate('/myinfo')}>
+          <img src={hash} alt="myinfo" />
         </button>
       </div>
     </div>
