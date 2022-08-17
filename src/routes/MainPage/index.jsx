@@ -1,11 +1,14 @@
+import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
 import plog from '../../assets/pngs/flogging.png'
 import hash from '../../assets/pngs/hashtag.png'
 import menu from '../../assets/pngs/menu.png'
-import Chart from '../../components/Chart'
+import ToggleButton from '../../components/Buttons/ToggleButton'
+import { start } from '../../redux/ploggingSlice'
 
 import Slider from './Slider'
+import Chart from './Chart'
 import styles from './mainPage.module.scss'
 
 const data = [
@@ -39,6 +42,7 @@ const MainPage = ({ percent, time, person }) => {
   ]
 
   const navigate = useNavigate()
+  const dispatch = useDispatch()
 
   return (
     <div className={styles.mainPage}>
@@ -46,40 +50,35 @@ const MainPage = ({ percent, time, person }) => {
         <Slider sliderData={arr} />
       </div>
       <div className={styles.start}>
-        <button className={styles.startBtn}>START</button>
+        <button
+          className={styles.startBtn}
+          onClick={async () => {
+            dispatch(start())
+            navigate('/plogging')
+          }}
+        >
+          START
+        </button>
       </div>
       <div className={styles.overview}>
         <h1 className={styles.smallTitle}>Overview</h1>
         <div className={styles.back}>
-          <div className={styles.button}>토글스위치</div>
+          <div className={styles.button}>
+            <ToggleButton />
+          </div>
           <div className={styles.chart}>
             <Chart data={data} />
           </div>
         </div>
       </div>
       <div className={styles.footer}>
-        <button
-          onClick={() => {
-            navigate('/menu')
-          }}
-          className={styles.menuBtn}
-        >
+        <button onClick={() => navigate('/menu')} className={styles.menuBtn}>
           <img src={menu} alt="menu" />
         </button>
-        <button
-          onClick={() => {
-            navigate('/plogging')
-          }}
-          className={styles.plogBtn}
-        >
+        <button onClick={() => navigate('/myinfo')} className={styles.plogBtn}>
           <img src={plog} alt="plog" />
         </button>
-        <button
-          className={styles.hashBtn}
-          onClick={() => {
-            navigate('/feed')
-          }}
-        >
+        <button className={styles.hashBtn} onClick={() => navigate('/feed')}>
           <img src={hash} alt="hash" />
         </button>
       </div>

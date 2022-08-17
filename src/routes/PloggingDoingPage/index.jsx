@@ -1,10 +1,23 @@
 import { useState, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+
+import Goodlogging from '../../service/goodlogging'
+import BackButton from '../../components/Buttons/BackButton'
+import Gnb from '../../components/Gnb'
+import { end } from '../../redux/ploggingSlice'
+import { getCoordInfo } from '../../util/geolocation'
 
 import styles from './ploggingDoingPage.module.scss'
 import ProgressBar from './ProgressBar'
 
 const PloggingDoingPage = () => {
+  const navigate = useNavigate()
+  const plogging = useSelector((state) => state.plogging)
+  const dispatch = useDispatch()
   const [count, setCount] = useState(0)
+  const [time, setTime] = useState(0)
+  const [timerOn, setTimeOn] = useState(true)
   // const [color, setColor] = useState('#3F97FF')
 
   const level = 30 // 초급 중급 고급에 따라 바뀌어야 됨
@@ -26,15 +39,9 @@ const PloggingDoingPage = () => {
     }
   }
 
-  function addCount() {
+  async function addCount() {
     setCount(count + 1)
   }
-  const clickMenu = () => {
-    // console.log('clicked menu')
-  }
-
-  const [time, setTime] = useState(0)
-  const [timerOn, setTimeOn] = useState(true)
 
   useEffect(() => {
     let interval = null
@@ -50,19 +57,29 @@ const PloggingDoingPage = () => {
     return () => clearInterval(interval)
   }, [timerOn])
 
+  const handlePlogging = async () => {
+    addCount()
+    const { region, latitude, longitude } = await getCoordInfo()
+    await Goodlogging.plogging(plogging.id, latitude, longitude, region)
+  }
+
+  const handleEnd = () => {
+    setTimeOn(false)
+    dispatch(end(plogging.id))
+    navigate('/complete')
+  }
+
   return (
     <div className={styles.ploggingWrap}>
       <div>
-        <div className={styles.menu}>
-          <button onClick={clickMenu}>
-            <img alt="menu" src="img/menubar.png" />
-          </button>
-        </div>
+        <Gnb>
+          <BackButton />
+        </Gnb>
         <div>
           <div className={styles.progressOutWrap}>
             <ProgressBar className={styles.progressWrap} {...state} />
             <div className={styles.numberWrap}>
-              <button className={styles.trashCounter} onClick={addCount}>
+              <button className={styles.trashCounter} onClick={handlePlogging}>
                 {count}
               </button>
               <div className={styles.goal}>
@@ -73,10 +90,7 @@ const PloggingDoingPage = () => {
           <div>
             <div>
               <div className={styles.stopwatchWrap}>
-                <button
-                  className={styles.finishButton}
-                  onClick={() => setTimeOn(false)}
-                >
+                <button className={styles.finishButton} onClick={handleEnd}>
                   끝내기
                 </button>
                 <div className={styles.stopwatch}>

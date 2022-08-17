@@ -14,7 +14,6 @@ export default {
       },
     })
   },
-
   login(email, password) {
     return Axios({
       url: '/auth/login',
@@ -23,6 +22,34 @@ export default {
         email,
         password,
       },
+    })
+  },
+  user(level, address) {
+    return Axios({
+      url: '/user',
+      method: 'put',
+      data: {
+        level,
+        address,
+      },
+    })
+  },
+  startPlogging() {
+    return Axios({
+      url: '/plogging/start',
+      method: 'post',
+    })
+  },
+  endPlogging(id) {
+    return Axios({
+      url: `/plogging/end/${id}`,
+      method: 'post',
+    })
+  },
+  plogging(id, latitude, longitude, district) {
+    return Axios({
+      url: `/trash/${id}?lat=${latitude}&lon=${longitude}&district=${district}`,
+      method: 'post',
     })
   },
 }
