@@ -1,7 +1,11 @@
+import { useState, useEffect } from 'react'
+
+import Goodlogging from '../../service/goodlogging'
 import HotPlace from '../../service/kakao/HotPlace'
 import BackButton from '../../components/Buttons/BackButton'
 import Gnb from '../../components/Gnb'
 import RankProgress from '../../components/RankProgess'
+import { getHottestLocation } from '../../util/geolocation'
 
 import styles from './feedPage.module.scss'
 
@@ -27,6 +31,24 @@ const RANK_5_RATIO = (RANK_5 / RANK_1) * 100
 const RANK_6_RATIO = (RANK_6 / RANK_1) * 100
 
 const FeedPage = () => {
+  const [usersData, setUsersData] = useState()
+  const [hottestPlace, setHottestPlace] = useState()
+
+  useEffect(() => {
+    console.log('usersData:', usersData)
+    console.log('hottestPlace:', hottestPlace)
+  }, [hottestPlace, usersData])
+
+  useEffect(() => {
+    ;(async () => {
+      const res = await Goodlogging.inquireFeed()
+      setUsersData(res.data)
+      const response = await getHottestLocation(res.data.trashes)
+      console.log('response', response)
+      setHottestPlace(response)
+    })()
+  }, [])
+
   return (
     <div className={styles.contents}>
       <Gnb>
@@ -34,7 +56,7 @@ const FeedPage = () => {
       </Gnb>
       <div className={styles.hotPlace}>
         <p className={styles.titleSmall}>HOT PLACE</p>
-        <HotPlace location="구월1동" />
+        <HotPlace location={hottestPlace} />
       </div>
       <div className={styles.rank}>
         <div className={styles.title}>

@@ -9,7 +9,7 @@ const geocoder = new kakao.maps.services.Geocoder()
 const HotPlace = ({ location }) => {
   useEffect(() => {
     const container = document.getElementById('map')
-
+    console.log('location:', location)
     const coordinates = getCoordinates(location)
     const linePath = coordinates.map(
       (coordinate) => new kakao.maps.LatLng(coordinate[1], coordinate[0]),
