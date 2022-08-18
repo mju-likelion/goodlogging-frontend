@@ -54,7 +54,7 @@ export default {
   },
   getPloggingInfo() {
     return Axios({
-      url: '/plogging',
+      url: '/log',
       method: 'get',
     })
   },
