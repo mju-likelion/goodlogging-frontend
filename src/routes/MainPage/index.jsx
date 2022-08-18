@@ -72,6 +72,30 @@ const MainPage = ({ percent }) => {
         }
         setData(sortedByDayData)
         break
+      case 'month':
+        if (sortedByDayData.length > 30) {
+          setData(sortedByDayData.slice(-30))
+          break
+        }
+        for (let i = 0, length = sortedByDayData.length; i < 30 - length; i++) {
+          sortedByDayData.push({})
+        }
+        setData(sortedByDayData)
+        break
+      case 'year':
+        if (sortedByDayData.length > 365) {
+          setData(sortedByDayData.slice(-365))
+          break
+        }
+        for (
+          let i = 0, length = sortedByDayData.length;
+          i < 365 - length;
+          i++
+        ) {
+          sortedByDayData.push({})
+        }
+        setData(sortedByDayData)
+        break
       default:
         break
     }
