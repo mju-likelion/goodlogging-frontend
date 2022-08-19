@@ -48,7 +48,7 @@ const FeedPage = () => {
     findMaxTarget(users)
     console.log(users)
     return data
-  }, [])
+  }, [findMaxTarget, sortType])
 
   useEffect(() => {
     fetchRank()
