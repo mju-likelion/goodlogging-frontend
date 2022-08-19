@@ -4,6 +4,8 @@ import Gnb from '../../components/Gnb'
 import RankProgress from '../../components/RankProgess'
 
 import styles from './feedPage.module.scss'
+import { instance } from '../../util/axios'
+import { useEffect, useState } from 'react'
 
 const RANK_1 = 200
 const RANK_2 = 100
@@ -27,6 +29,12 @@ const RANK_5_RATIO = (RANK_5 / RANK_1) * 100
 const RANK_6_RATIO = (RANK_6 / RANK_1) * 100
 
 const FeedPage = () => {
+  const [sortType, setSortType] = useState('time')
+
+  useEffect(() => {
+    console.log('현재 타입은', sortType)
+  }, [sortType])
+
   return (
     <div className={styles.contents}>
       <Gnb>
@@ -40,9 +48,19 @@ const FeedPage = () => {
         <div className={styles.title}>
           <p className={styles.titleSmall}>RANK</p>
           <div className={styles.buttonWrapper}>
-            <button className={styles.viewTime}>시간</button>
+            <button
+              className={styles.viewTime}
+              onClick={() => setSortType('time')}
+            >
+              시간
+            </button>
             <p className={styles.divider}>|</p>
-            <button className={styles.viewCount}>개수</button>
+            <button
+              className={styles.viewCount}
+              onClick={() => setSortType('count')}
+            >
+              개수
+            </button>
           </div>
         </div>
         <RankProgress count={RANK_1} ratio={RANK_1_RATIO} name={NAME_1} />
