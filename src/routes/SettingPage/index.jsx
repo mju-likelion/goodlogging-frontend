@@ -60,7 +60,7 @@ const SettingPage = () => {
               width="small"
               textColor="textBlack"
               backColor="backGrey"
-              onClick={setLocal}
+              onClick={setLevel}
               isSelected={item === local}
             />
           ))}
@@ -75,7 +75,7 @@ const SettingPage = () => {
               width="small"
               textColor="textBlack"
               backColor="backGrey"
-              onClick={setLevel}
+              onClick={setLocal}
               isSelected={item === level}
             />
           ))}
