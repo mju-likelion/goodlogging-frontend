@@ -14,7 +14,7 @@ const FeedPage = () => {
   const [userRank, setUserRank] = useState([])
   let maxValue = 0
 
-  const findMaxTarget = (users) => {
+  const findMaxTarget = useCallback((users) => {
     // max 값 구하기
     for (const i of users) {
       if (sortType === 'time') {
@@ -40,7 +40,8 @@ const FeedPage = () => {
         }
       }
     }
-  }
+  }, [])
+
   const fetchRank = useCallback(async () => {
     const { data } = await Goodlogging.inquireFeed(sortType)
     const { users } = data
