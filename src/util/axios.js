@@ -1,6 +1,8 @@
 /* eslint-disable promise/prefer-await-to-callbacks */
 import axios from 'axios'
 
+const { localStorage } = window
+
 const instance = axios.create({
   baseURL: process.env.REACT_APP_BASEURL,
   headers: {
@@ -12,6 +14,9 @@ const instance = axios.create({
 
 instance.interceptors.request.use(
   (config) => {
+    if (config.headers) {
+      config.headers.authorization = `${localStorage.getItem('token')}`
+    }
     return config
   },
   (error) => {

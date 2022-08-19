@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
 import classNames from 'classnames/bind'
+import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 
 import cheers from '../../assets/pngs/cheers.png'
 import plant from '../../assets/pngs/plant.png'
@@ -10,6 +12,8 @@ import styles from './completePage.module.scss'
 const cx = classNames.bind(styles)
 
 const CompletePage = () => {
+  const plogging = useSelector((state) => state.plogging)
+  const navigate = useNavigate()
   const [mounted, isMounted] = useState(false)
 
   useEffect(() => {
@@ -17,7 +21,7 @@ const CompletePage = () => {
   }, [])
 
   return (
-    <div className={cx('completePage')}>
+    <button className={cx('completePage')} onClick={() => navigate('/feed')}>
       <h1>플로깅 완료</h1>
       <div className={cx('content', { isMounted: mounted })}>
         <div className={cx('bedges')}>
@@ -26,7 +30,7 @@ const CompletePage = () => {
           <img src={medal} alt="medal" />
         </div>
         <p className={cx('description')}>
-          <mark>94개</mark> 줍기 달성!
+          <mark>{plogging.trash}개</mark> 줍기 달성!
         </p>
         <div className={cx('time')}>
           <img src={plant} alt="plant" />
@@ -47,7 +51,7 @@ const CompletePage = () => {
       <div className={cx('box9')} />
       <div className={cx('box10')} />
       <img src={cheers} alt="cheers" className={cx('cheers')} />
-    </div>
+    </button>
   )
 }
 
