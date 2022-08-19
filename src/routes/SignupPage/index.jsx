@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 
 import Goodlogging from '../../service/goodlogging'
 import Button from '../../components/Buttons/Button'
+import Slider from '../../components/Slider'
 
 import styles from './signupPage.module.scss'
 
@@ -26,8 +27,6 @@ const LOCAL_NAMES = [
   '제주',
   '세종',
 ]
-
-const LEVEL_NAME = ['초급', '중급', '고급']
 
 const SignupPage = () => {
   const navigate = useNavigate()
@@ -52,6 +51,7 @@ const SignupPage = () => {
     <div className={styles.signupPage}>
       <h1>회원가입</h1>
       <form className={styles.signupForm} onSubmit={handleSubmit(onSubmit)}>
+        <p className={styles.label}>이메일</p>
         <input
           className={styles.textInput}
           type="email"
@@ -62,12 +62,14 @@ const SignupPage = () => {
             pattern: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,})+$/,
           })}
         />
+        <p className={styles.label}>ID</p>
         <input
           className={styles.textInput}
           placeholder="password"
           type="password"
           {...register('password', { required: true, minLength: 8 })}
         />
+        <p className={styles.label}>비밀번호</p>
         <input
           className={styles.textInput}
           placeholder="username"
@@ -89,20 +91,8 @@ const SignupPage = () => {
             />
           ))}
         </div>
-        <p className={styles.label}>레벨</p>
-        <div className={styles.levelSelector}>
-          {LEVEL_NAME.map((item) => (
-            <Button
-              key={item}
-              text={item}
-              width="small"
-              textColor="textBlack"
-              backColor="backGrey"
-              onClick={setLevel}
-              isSelected={item === level}
-            />
-          ))}
-        </div>
+        <p className={styles.label}>나의 플로깅 실력</p>
+        <Slider onChange={setLevel} />
         <Button
           text="회원가입 완료"
           width="large"
