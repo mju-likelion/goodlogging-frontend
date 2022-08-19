@@ -3,8 +3,8 @@ import { BarChart, Bar, XAxis } from 'recharts'
 export default function Chart({ data }) {
   return (
     <BarChart width={300} height={230} data={data}>
-      <XAxis dataKey="name" tickLine={false} axisLine={false} />
-
+      <XAxis dataKey="name" axisLine={false} tickLine={false} />
+      <Bar dataKey="trash" fill="#3F97FF" barSize={20} />
       <Bar dataKey="cnt" fill="#3F97FF" />
     </BarChart>
   )

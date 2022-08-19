@@ -52,6 +52,12 @@ export default {
       method: 'post',
     })
   },
+  getPloggingInfo() {
+    return Axios({
+      url: '/log',
+      method:'get',
+    })
+  },
   inquireFeed(sorted = 'time') {
     return Axios({
       url: `/feed?sorted=${sorted}`,
