@@ -1,6 +1,6 @@
 import styles from './rankProgress.module.scss'
 
-const RankProgress = ({ ratio, count, name }) => {
+const RankProgress = ({ ratio, count, plogging, name }) => {
   return (
     <div className={styles.progressDiv}>
       <div className={styles.rankProgress}>
@@ -13,7 +13,11 @@ const RankProgress = ({ ratio, count, name }) => {
         />
         <p className={styles.userName}>{name}</p>
       </div>
-      <p className={styles.rankCount}>{count}개</p>
+      {count >= 0 ? (
+        <p className={styles.rankCount}>{count}개</p>
+      ) : (
+        <p className={styles.rankCount}>{plogging}초</p>
+      )}
     </div>
   )
 }
