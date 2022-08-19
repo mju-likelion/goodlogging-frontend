@@ -14,33 +14,36 @@ const FeedPage = () => {
   const [userRank, setUserRank] = useState([])
   const maxValue = useRef(0)
 
-  const findMaxTarget = useCallback((users) => {
-    // max 값 구하기
-    for (const i of users) {
-      if (sortType === 'time') {
-        maxValue.current = Math.max(maxValue.current, i.plogging)
-      } else {
-        maxValue.current = Math.max(maxValue.current, i.trash)
+  const findMaxTarget = useCallback(
+    (users) => {
+      // max 값 구하기
+      for (const i of users) {
+        if (sortType === 'time') {
+          maxValue.current = Math.max(maxValue.current, i.plogging)
+        } else {
+          maxValue.current = Math.max(maxValue.current, i.trash)
+        }
       }
-    }
 
-    // ratio 구하기
-    for (const i of users) {
-      if (sortType === 'time') {
-        if (i.plogging === maxValue.current) {
-          Object.assign(i, { ratio: 100 })
+      // ratio 구하기
+      for (const i of users) {
+        if (sortType === 'time') {
+          if (i.plogging === maxValue.current) {
+            Object.assign(i, { ratio: 100 })
+          } else {
+            Object.assign(i, { ratio: (i.plogging / maxValue.current) * 100 })
+          }
         } else {
-          Object.assign(i, { ratio: (i.plogging / maxValue.current) * 100 })
-        }
-      } else {
-        if (i.trash === maxValue.current) {
-          Object.assign(i, { ratio: 100 })
-        } else {
-          Object.assign(i, { ratio: (i.trash / maxValue.current) * 100 })
+          if (i.trash === maxValue.current) {
+            Object.assign(i, { ratio: 100 })
+          } else {
+            Object.assign(i, { ratio: (i.trash / maxValue.current) * 100 })
+          }
         }
       }
-    }
-  }, [])
+    },
+    [sortType],
+  )
 
   const fetchRank = useCallback(async () => {
     const { data } = await Goodlogging.inquireFeed(sortType)
