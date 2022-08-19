@@ -12,6 +12,7 @@ const MenuPage = () => {
   const dispatch = useDispatch()
   const handleLogout = () => {
     dispatch(logout())
+    navigate('/login')
   }
 
   return (

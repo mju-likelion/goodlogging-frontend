@@ -61,7 +61,7 @@ const SettingPage = () => {
               textColor="textBlack"
               backColor="backGrey"
               onClick={setLevel}
-              isSelected={item === local}
+              isSelected={item === level}
             />
           ))}
           <h1>플로깅을 시작할 때 반영되는 개수가 달라집니다.</h1>
@@ -76,7 +76,7 @@ const SettingPage = () => {
               textColor="textBlack"
               backColor="backGrey"
               onClick={setLocal}
-              isSelected={item === level}
+              isSelected={item === local}
             />
           ))}
           <h1>
