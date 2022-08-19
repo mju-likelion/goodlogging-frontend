@@ -65,7 +65,6 @@ const MainPage = ({ percent, time, person }) => {
 
     const sortedByDayData = sortByDay(sortedData)
 
-    console.log(sortedByDayData)
     switch (view) {
       case 'week':
         if (sortedByDayData.length > 7) {
@@ -110,7 +109,6 @@ const MainPage = ({ percent, time, person }) => {
     getPloggingData()
   }, [getPloggingData])
 
-  console.log(view)
   return (
     <div className={styles.mainPage}>
       <div className={styles.headPopUp}>
