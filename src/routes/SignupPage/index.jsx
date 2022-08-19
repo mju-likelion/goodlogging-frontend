@@ -91,7 +91,7 @@ const SignupPage = () => {
             />
           ))}
         </div>
-        <p className={styles.label}>나의 플로깅 실력</p>
+        <p className={styles.levelLabel}>나의 플로깅 실력</p>
         <Slider onChange={setLevel} />
         <Button
           text="회원가입 완료"
