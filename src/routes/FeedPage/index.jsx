@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 
 import HotPlace from '../../service/kakao/HotPlace'
 import BackButton from '../../components/Buttons/BackButton'
@@ -41,14 +41,14 @@ const FeedPage = () => {
       }
     }
   }
-  const fetchRank = async () => {
+  const fetchRank = useCallback(async () => {
     const { data } = await Goodlogging.inquireFeed(sortType)
     const { users } = data
     setUserRank(users)
     findMaxTarget(users)
     console.log(users)
     return data
-  }
+  }, [])
 
   useEffect(() => {
     fetchRank()
