@@ -13,18 +13,16 @@ import Slider from './Slider'
 import Chart from './Chart'
 import styles from './mainPage.module.scss'
 
+const MainPage = ({ percent, time, person }) => {
+  const [view, setView] = useState('week')
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+  const [data, setData] = useState(null)
   const arr = [
     `월간 목표 ${percent || 77}% 달성 중!`,
     `지난 달 보다 ${time || 3}시간 더 했어요!`,
     `${person || 23}명의 굿로거가 달리는 중!`,
   ]
-
-
-const MainPage = ({ percent }) => {
-  const [view, setView] = useState('week')
-  const navigate = useNavigate()
-  const dispatch = useDispatch()
-  const [data, setData] = useState(null)
 
   const sortByDay = (arr) => {
     return arr.reduce((acc, cur) => {
