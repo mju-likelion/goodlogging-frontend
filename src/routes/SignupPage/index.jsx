@@ -28,8 +28,6 @@ const LOCAL_NAMES = [
   '세종',
 ]
 
-const LEVEL_NAME = ['초급', '중급', '고급']
-
 const SignupPage = () => {
   const navigate = useNavigate()
   const { register, handleSubmit, formState } = useForm({
@@ -94,7 +92,7 @@ const SignupPage = () => {
           ))}
         </div>
         <p className={styles.label}>나의 플로깅 실력</p>
-        <Slider />
+        <Slider onChange={setLevel} />
         <Button
           text="회원가입 완료"
           width="large"

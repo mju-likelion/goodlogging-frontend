@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 
 import styles from './slider.module.scss'
 
-const Slider = () => {
+const Slider = ({ onChange }) => {
   const [level, setLevel] = useState('0')
 
   const [progress, setProgress] = useState(0)
@@ -19,6 +19,15 @@ const Slider = () => {
   const onChangeLevel = (event) => {
     setLevel(event.target.value)
   }
+
+  useEffect(() => {
+    const textLevel = {
+      0: '초급',
+      1: '중급',
+      2: '상급',
+    }[level]
+    onChange(textLevel)
+  }, [level, onChange])
   return (
     <div className={styles.container}>
       <div className={styles.range}>
