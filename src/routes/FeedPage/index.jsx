@@ -52,7 +52,7 @@ const FeedPage = () => {
 
   useEffect(() => {
     fetchRank()
-  }, [sortType])
+  }, [fetchRank])
 
   return (
     <div className={styles.contents}>
