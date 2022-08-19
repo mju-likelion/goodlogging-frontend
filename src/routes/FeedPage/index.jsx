@@ -5,8 +5,8 @@ import BackButton from '../../components/Buttons/BackButton'
 import Gnb from '../../components/Gnb'
 import RankProgress from '../../components/RankProgess'
 import HomeButton from '../../components/Buttons/HomeButton'
-
 import Goodlogging from '../../service/goodlogging'
+
 import styles from './feedPage.module.scss'
 
 const FeedPage = () => {
