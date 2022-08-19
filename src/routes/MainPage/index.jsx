@@ -9,12 +9,19 @@ import menu from '../../assets/pngs/menu.png'
 import ToggleButton from '../../components/Buttons/ToggleButton'
 import { start } from '../../redux/ploggingSlice'
 
+import Slider from './Slider'
 import Chart from './Chart'
 import styles from './mainPage.module.scss'
 
+  const arr = [
+    `월간 목표 ${percent || 77}% 달성 중!`,
+    `지난 달 보다 ${time || 3}시간 더 했어요!`,
+    `${person || 23}명의 굿로거가 달리는 중!`,
+  ]
+
+
 const MainPage = ({ percent }) => {
   const [view, setView] = useState('week')
-  const text1 = `월간 목표 ${percent || 77}% 달성 중!`
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const [data, setData] = useState(null)
@@ -108,7 +115,9 @@ const MainPage = ({ percent }) => {
   console.log(view)
   return (
     <div className={styles.mainPage}>
-      <div className={styles.headPopUp}>{text1}</div>
+      <div className={styles.headPopUp}>
+        <Slider sliderData={arr} />
+      </div>
       <div className={styles.start}>
         <button
           className={styles.startBtn}
@@ -135,11 +144,11 @@ const MainPage = ({ percent }) => {
         <button onClick={() => navigate('/menu')} className={styles.menuBtn}>
           <img src={menu} alt="menu" />
         </button>
-        <button onClick={() => navigate('/myinfo')} className={styles.plogBtn}>
-          <img src={plog} alt="plog" />
+        <button onClick={() => navigate('/feed')} className={styles.plogBtn}>
+          <img src={plog} alt="feed" />
         </button>
-        <button className={styles.hashBtn} onClick={() => navigate('/feed')}>
-          <img src={hash} alt="hash" />
+        <button className={styles.hashBtn} onClick={() => navigate('/myinfo')}>
+          <img src={hash} alt="myinfo" />
         </button>
       </div>
     </div>

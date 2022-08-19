@@ -14,20 +14,27 @@ const useIsAuth = () => {
 
   useEffect(() => {
     const storedToken = localStorage.getItem('token')
+    if (storedToken && !auth.isAuthenticated) {
+      dispatch(refresh(storedToken))
+    }
+
+    if (location.pathname === '/signup') {
+      if (auth.isAuthenticated && auth.token) {
+        navigate('/')
+      }
+      return
+    }
 
     if (!auth.isAuthenticated || !auth.token || !storedToken) {
       dispatch(logout())
       navigate('/login')
+      return
     }
 
     if (location.pathname === '/login') {
       if (auth.isAuthenticated && auth.token) {
         navigate('/')
       }
-    }
-
-    if (storedToken && !auth.isAuthenticated) {
-      dispatch(refresh(storedToken))
     }
   }, [auth, dispatch, location.pathname, navigate])
 }
