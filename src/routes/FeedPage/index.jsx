@@ -1,12 +1,13 @@
+import { useEffect, useState } from 'react'
+
 import HotPlace from '../../service/kakao/HotPlace'
 import BackButton from '../../components/Buttons/BackButton'
 import Gnb from '../../components/Gnb'
 import RankProgress from '../../components/RankProgess'
 import HomeButton from '../../components/Buttons/HomeButton'
 
-import styles from './feedPage.module.scss'
 import Goodlogging from '../../service/goodlogging'
-import { useEffect, useState } from 'react'
+import styles from './feedPage.module.scss'
 
 const FeedPage = () => {
   const [sortType, setSortType] = useState('time')
@@ -15,7 +16,7 @@ const FeedPage = () => {
 
   const findMaxTarget = (users) => {
     // max 값 구하기
-    for (let i of users) {
+    for (const i of users) {
       if (sortType === 'time') {
         maxValue = Math.max(maxValue, i.plogging)
       } else {
@@ -24,7 +25,7 @@ const FeedPage = () => {
     }
 
     // ratio 구하기
-    for (let i of users) {
+    for (const i of users) {
       if (sortType === 'time') {
         if (i.plogging === maxValue) {
           Object.assign(i, { ratio: 100 })
@@ -50,7 +51,7 @@ const FeedPage = () => {
   }
 
   useEffect(() => {
-    fetchRank(sortType)
+    fetchRank()
   }, [sortType])
 
   return (
