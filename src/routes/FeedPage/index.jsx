@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 
 import HotPlace from '../../service/kakao/HotPlace'
 import BackButton from '../../components/Buttons/BackButton'
@@ -12,31 +12,31 @@ import styles from './feedPage.module.scss'
 const FeedPage = () => {
   const [sortType, setSortType] = useState('time')
   const [userRank, setUserRank] = useState([])
-  let maxValue = 0
+  const maxValue = useRef(0)
 
   const findMaxTarget = useCallback((users) => {
     // max 값 구하기
     for (const i of users) {
       if (sortType === 'time') {
-        maxValue = Math.max(maxValue, i.plogging)
+        maxValue.current = Math.max(maxValue.current, i.plogging)
       } else {
-        maxValue = Math.max(maxValue, i.trash)
+        maxValue.current = Math.max(maxValue.current, i.trash)
       }
     }
 
     // ratio 구하기
     for (const i of users) {
       if (sortType === 'time') {
-        if (i.plogging === maxValue) {
+        if (i.plogging === maxValue.current) {
           Object.assign(i, { ratio: 100 })
         } else {
-          Object.assign(i, { ratio: (i.plogging / maxValue) * 100 })
+          Object.assign(i, { ratio: (i.plogging / maxValue.current) * 100 })
         }
       } else {
-        if (i.trash === maxValue) {
+        if (i.trash === maxValue.current) {
           Object.assign(i, { ratio: 100 })
         } else {
-          Object.assign(i, { ratio: (i.trash / maxValue) * 100 })
+          Object.assign(i, { ratio: (i.trash / maxValue.current) * 100 })
         }
       }
     }
