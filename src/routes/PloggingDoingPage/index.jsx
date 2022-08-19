@@ -76,17 +76,15 @@ const PloggingDoingPage = () => {
           <BackButton />
         </Gnb>
         <div>
-          <div className={styles.progressOutWrap}>
+          <button className={styles.progressOutWrap} onClick={handlePlogging}>
             <ProgressBar className={styles.progressWrap} {...state} />
             <div className={styles.numberWrap}>
-              <button className={styles.trashCounter} onClick={handlePlogging}>
-                {count}
-              </button>
+              <div className={styles.trashCounter}>{count}</div>
               <div className={styles.goal}>
                 {count}/{level}
               </div>
             </div>
-          </div>
+          </button>
           <div>
             <div>
               <div className={styles.stopwatchWrap}>

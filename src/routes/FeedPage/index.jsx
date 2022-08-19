@@ -2,6 +2,7 @@ import HotPlace from '../../service/kakao/HotPlace'
 import BackButton from '../../components/Buttons/BackButton'
 import Gnb from '../../components/Gnb'
 import RankProgress from '../../components/RankProgess'
+import HomeButton from '../../components/Buttons/HomeButton'
 
 import styles from './feedPage.module.scss'
 import { instance } from '../../util/axios'
@@ -39,6 +40,7 @@ const FeedPage = () => {
     <div className={styles.contents}>
       <Gnb>
         <BackButton />
+        <HomeButton />
       </Gnb>
       <div className={styles.hotPlace}>
         <p className={styles.titleSmall}>HOT PLACE</p>

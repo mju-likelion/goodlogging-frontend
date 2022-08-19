@@ -36,7 +36,7 @@ const HotPlace = ({ location }) => {
         polyline.setMap(map)
       }
     })
-  }, [])
+  }, [location])
 
   return (
     <div
