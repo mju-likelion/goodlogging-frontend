@@ -11,8 +11,11 @@ const initialState = {
 
 export const start = createAsyncThunk('ploggingSlice/start', async () => {
   const response = await Goodlogging.startPlogging()
+  console.log('response', response)
   const {
-    data: { id },
+    data: {
+      result: { id },
+    },
   } = response
   return id
 })
