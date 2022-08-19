@@ -51,7 +51,7 @@ const SignupPage = () => {
     <div className={styles.signupPage}>
       <h1>회원가입</h1>
       <form className={styles.signupForm} onSubmit={handleSubmit(onSubmit)}>
-        <p className={styles.label}>이메일</p>
+        <p className={styles.label}>Email</p>
         <input
           className={styles.textInput}
           type="email"
@@ -62,14 +62,14 @@ const SignupPage = () => {
             pattern: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,})+$/,
           })}
         />
-        <p className={styles.label}>ID</p>
+        <p className={styles.label}>Password</p>
         <input
           className={styles.textInput}
           placeholder="password"
           type="password"
           {...register('password', { required: true, minLength: 8 })}
         />
-        <p className={styles.label}>비밀번호</p>
+        <p className={styles.label}>Username</p>
         <input
           className={styles.textInput}
           placeholder="username"
