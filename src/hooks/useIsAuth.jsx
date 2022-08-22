@@ -18,6 +18,14 @@ const useIsAuth = () => {
       dispatch(refresh(storedToken))
     }
 
+    if (storedToken && location.pathname === '/login') {
+      navigate('/')
+    }
+
+    if (!storedToken && !location.pathname === '/login') {
+      navigate('/login')
+    }
+
     if (location.pathname === '/signup') {
       if (auth.isAuthenticated && auth.token) {
         navigate('/')
