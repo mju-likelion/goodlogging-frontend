@@ -20,7 +20,8 @@
 - eslint
 - prettier
 - stylelint
-- rtk
+- react-hook-form
+- redux toolkit
 - recharts
 
 #### 커밋 컨벤션
