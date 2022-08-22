@@ -20,6 +20,8 @@
 - eslint
 - prettier
 - stylelint
+- rtk
+- recharts
 
 #### 커밋 컨벤션
 |키워드|설명|
@@ -33,27 +35,124 @@
 
 
 #### 폴더구조
-      📦src
+        📦src
     ┣ 📂assets
+    ┃ ┣ 📂json
+    ┃ ┃ ┗ 📜korea.json
     ┃ ┣ 📂pngs
-    ┃ ┃ ┗ 📜challenge.jpg
+    ┃ ┃ ┣ 📜boss.png
+    ┃ ┃ ┣ 📜bronze.png
+    ┃ ┃ ┣ 📜challenge.jpg
+    ┃ ┃ ┣ 📜challenger.png
+    ┃ ┃ ┣ 📜cheers.png
+    ┃ ┃ ┣ 📜darkblue.png
+    ┃ ┃ ┣ 📜everyday.png
+    ┃ ┃ ┣ 📜flogging.png
+    ┃ ┃ ┣ 📜gold.png
+    ┃ ┃ ┣ 📜hashtag.png
+    ┃ ┃ ┣ 📜lock.png
+    ┃ ┃ ┣ 📜medal.png
+    ┃ ┃ ┣ 📜menu.png
+    ┃ ┃ ┣ 📜mvp.png
+    ┃ ┃ ┣ 📜newbie.png
+    ┃ ┃ ┣ 📜park.png
+    ┃ ┃ ┣ 📜plant.png
+    ┃ ┃ ┣ 📜platinum.png
+    ┃ ┃ ┣ 📜silver.png
+    ┃ ┃ ┣ 📜start.png
+    ┃ ┃ ┗ 📜together.png
     ┃ ┗ 📂svgs
     ┃ ┃ ┣ 📜chevron-left-solid.svg
+    ┃ ┃ ┣ 📜house-solid.svg
     ┃ ┃ ┗ 📜index.js
     ┣ 📂components
-    ┃ ┗ 📂Button
-    ┃ ┃ ┣ 📜button.module.scss
+    ┃ ┣ 📂Buttons
+    ┃ ┃ ┣ 📂BackButton
+    ┃ ┃ ┃ ┣ 📜backButton.module.scss
+    ┃ ┃ ┃ ┗ 📜index.jsx
+    ┃ ┃ ┣ 📂Button
+    ┃ ┃ ┃ ┣ 📜button.module.scss
+    ┃ ┃ ┃ ┗ 📜index.jsx
+    ┃ ┃ ┣ 📂CompleteButton
+    ┃ ┃ ┃ ┣ 📜completeButton.module.scss
+    ┃ ┃ ┃ ┗ 📜index.jsx
+    ┃ ┃ ┣ 📂HomeButton
+    ┃ ┃ ┃ ┣ 📜homeButton.module.scss
+    ┃ ┃ ┃ ┗ 📜index.jsx
+    ┃ ┃ ┗ 📂ToggleButton
+    ┃ ┃ ┃ ┣ 📜index.jsx
+    ┃ ┃ ┃ ┗ 📜toggleButton.module.scss
+    ┃ ┣ 📂Gnb
+    ┃ ┃ ┣ 📜gnb.module.scss
     ┃ ┃ ┗ 📜index.jsx
+    ┃ ┣ 📂Progress
+    ┃ ┃ ┣ 📜index.jsx
+    ┃ ┃ ┗ 📜progress.module.scss
+    ┃ ┣ 📂RankProgess
+    ┃ ┃ ┣ 📜index.jsx
+    ┃ ┃ ┗ 📜rankProgress.module.scss
+    ┃ ┣ 📂Slider
+    ┃ ┃ ┣ 📜index.jsx
+    ┃ ┃ ┗ 📜slider.module.scss
+    ┃ ┗ 📜OverviewBar.jsx
+    ┣ 📂hooks
+    ┃ ┣ 📜useInput.js
+    ┃ ┗ 📜useIsAuth.jsx
+    ┣ 📂redux
+    ┃ ┣ 📜authSlice.js
+    ┃ ┣ 📜ploggingSlice.js
+    ┃ ┗ 📜store.js
     ┣ 📂routes
+    ┃ ┣ 📂CompletePage
+    ┃ ┃ ┣ 📜completePage.module.scss
+    ┃ ┃ ┗ 📜index.jsx
+    ┃ ┣ 📂FeedPage
+    ┃ ┃ ┣ 📜feedPage.module.scss
+    ┃ ┃ ┗ 📜index.jsx
     ┃ ┣ 📂LoginPage
     ┃ ┃ ┣ 📜index.jsx
     ┃ ┃ ┗ 📜loginPage.module.scss
+    ┃ ┣ 📂MainPage
+    ┃ ┃ ┣ 📂Chart
+    ┃ ┃ ┃ ┗ 📜index.jsx
+    ┃ ┃ ┣ 📂Slider
+    ┃ ┃ ┃ ┣ 📜index.jsx
+    ┃ ┃ ┃ ┗ 📜slider.module.scss
+    ┃ ┃ ┣ 📜index.jsx
+    ┃ ┃ ┗ 📜mainPage.module.scss
+    ┃ ┣ 📂MenuPage
+    ┃ ┃ ┣ 📜index.jsx
+    ┃ ┃ ┗ 📜menuPage.module.scss
     ┃ ┣ 📂MyChallengePage
     ┃ ┃ ┣ 📜index.jsx
     ┃ ┃ ┗ 📜myChallengePage.module.scss
+    ┃ ┣ 📂MyinfoPage
+    ┃ ┃ ┣ 📜index.jsx
+    ┃ ┃ ┗ 📜myInfoPage.module.scss
+    ┃ ┣ 📂PloggingDoingPage
+    ┃ ┃ ┣ 📂ProgressBar
+    ┃ ┃ ┃ ┗ 📜index.jsx
+    ┃ ┃ ┣ 📜index.jsx
+    ┃ ┃ ┗ 📜ploggingDoingPage.module.scss
+    ┃ ┣ 📂QuestPage
+    ┃ ┃ ┣ 📂Modal
+    ┃ ┃ ┃ ┣ 📜index.jsx
+    ┃ ┃ ┃ ┗ 📜modal.module.scss
+    ┃ ┃ ┣ 📜EachBadge.jsx
+    ┃ ┃ ┣ 📜index.jsx
+    ┃ ┃ ┗ 📜questPage.module.scss
+    ┃ ┣ 📂SettingPage
+    ┃ ┃ ┣ 📜index.jsx
+    ┃ ┃ ┗ 📜settingPage.module.scss
     ┃ ┗ 📂SignupPage
     ┃ ┃ ┣ 📜index.jsx
     ┃ ┃ ┗ 📜signupPage.module.scss
+    ┣ 📂service
+    ┃ ┣ 📂goodlogging
+    ┃ ┃ ┗ 📜index.js
+    ┃ ┗ 📂kakao
+    ┃ ┃ ┣ 📜HotPlace.jsx
+    ┃ ┃ ┗ 📜KakaoMap.jsx
     ┣ 📂styles
     ┃ ┣ 📂base
     ┃ ┃ ┣ 📜_fonts.scss
@@ -71,6 +170,10 @@
     ┃ ┃ ┗ 📜_visual.scss
     ┃ ┣ 📜index.js
     ┃ ┗ 📜index.scss
+    ┣ 📂util
+    ┃ ┣ 📜axios.js
+    ┃ ┣ 📜geolocation.js
+    ┃ ┗ 📜getCoordinates.js
     ┣ 📜App.js
     ┣ 📜App.test.js
     ┣ 📜index.js
